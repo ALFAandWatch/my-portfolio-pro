@@ -1,0 +1,115 @@
+{
+   "s1": {
+      "introduction": "I’m a web developer focused on Frontend, with a strong curiosity about understanding how the web works from end to end. For over 3 years, I’ve been learning, experimenting, and building real-world projects, from modern interfaces to backend functionality."
+   },
+   "s2": {
+      "hobbiesTitle": "Something about me",
+      "gym": "I go to the gym",
+      "smash": "Big Smash Fan",
+      "metal": "I listen to good metal music"
+   },
+   "s_extra": {
+      "title": "Featured Projects"
+   },
+   "s3": {
+      "title": "All Projects"
+   },
+   "s4": {
+      "title": "Contact Information"
+   },
+   "labels": {
+      "academic": "Academic Project",
+      "featured": "Featured Project",
+      "inProgress": "In Progress",
+      "visit": "Visit Site"
+   },
+   "projects": [
+      {
+         "id": 1,
+         "title": "CompanyRadar",
+         "shortDescription": "Platform to explore companies by category and country.",
+         "fullDescription": "CompanyRadar is a web application that allows users to discover and explore companies based on category and geographic presence. Users can browse company profiles, view relevant links, and suggest new companies through a submission form. The project is built with Next.js (App Router) and TailwindCSS, using Supabase as the backend for data storage and management. It focuses on clean UI, simple data modeling, and a smooth user experience.",
+         "image": "/thumbnails/CompanyRadar1.png",
+         "link": "https://company-radar-sepia.vercel.app/en",
+         "inProgress": false,
+         "featured": true,
+         "academic": false,
+         "stack": ["Next.js", "React", "TailwindCSS", "Supabase", "PostgreSQL"]
+      },
+      {
+         "id": 2,
+         "title": "Weather Forecast App",
+         "shortDescription": "Mobile weather forecasting application.",
+         "fullDescription": "A mobile weather application built with React Native, focused on providing current conditions and forecasts by city or user location. It includes search, favorites, unit switching, and light/dark mode, consuming real-time data from an external API to deliver an accurate and user-friendly experience.",
+         "image": "/thumbnails/clima-app.png",
+         "link": "",
+         "inProgress": false,
+         "featured": false,
+         "stack": ["React Native", "Expo", "JavaScript"],
+         "video": "/videos/clima-app.mp4",
+         "apk": "https://github.com/ALFAandWatch/clima-app/releases/download/v1.1.0/clima-app.apk"
+      },
+      {
+         "id": 3,
+         "title": "Primeros Paso",
+         "shortDescription": "Business incubator platform.",
+         "fullDescription": "A business incubator platform currently under development, aimed at supporting local SMEs and fostering economic growth initiatives. The project is in its final stage before deployment, focusing on scalability and accessibility for emerging businesses.",
+         "image": "/thumbnails/primerPaso.png",
+         "link": "https://incubadora-demo.vercel.app/",
+         "inProgress": false,
+         "featured": false,
+         "stack": ["Next.js", "Tailwind CSS", "Supabase"]
+      },
+      {
+         "id": 4,
+         "title": "Planner.uy - Landing Page",
+         "shortDescription": "Corporate landing page.",
+         "fullDescription": "Collaborated with Planner on the development of digital products for startups and companies, working on web design, frontend development, and interactive experiences to transform ideas into accessible and visually engaging interfaces.",
+         "image": "/thumbnails/planner.png",
+         "link": "https://planner.uy/",
+         "inProgress": false,
+         "featured": false,
+         "stack": ["HTML5", "PHP", "Sass", "GSAP"]
+      },
+      {
+         "id": 5,
+         "title": "SportTickers",
+         "shortDescription": "Sports ticker link library.",
+         "fullDescription": "This project originated from an idea I proposed while working at SportRadar, a company focused on sports statistics and betting markets. It consists of an organized library of sports ticker links. Initially built with HTML and PHP, it was later rebuilt using React. Currently, the frontend is deployed on Vercel and the backend runs on Supabase.",
+         "image": "/thumbnails/sport-tickers.png",
+         "link": "https://sportstickers-supabase.vercel.app/",
+         "inProgress": false,
+         "featured": true,
+         "stack": ["Next.js", "Tailwind CSS", "Supabase"]
+      },
+      {
+         "id": 6,
+         "title": "ClickNest - E-commerce Platform",
+         "shortDescription": "Full-featured e-commerce application.",
+         "fullDescription": "A course project developed with a custom design. Built using Next.js (App Router) and Tailwind CSS, it includes user authentication, shopping cart functionality, and a fully working checkout system. The frontend is deployed on Vercel, the backend on Render, and the database on Supabase, delivering a smooth and responsive user experience.",
+         "image": "/thumbnails/clickNest0.png",
+         "link": "https://clicknest-rho.vercel.app/",
+         "inProgress": false,
+         "featured": false,
+         "academic": true,
+         "stack": ["React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL"]
+      }
+   ],
+   "info": [
+      {
+         "key": "email",
+         "label": "Email",
+         "value": "alfonso.gonzalezwebdev@gmail.com"
+      },
+      {
+         "key": "phone",
+         "label": "Phone",
+         "value": "+59899567652"
+      },
+      {
+         "key": "location",
+         "label": "Location",
+         "value": "Tarariras, Departamento de Colonia, Uruguay"
+      }
+   ]
+}

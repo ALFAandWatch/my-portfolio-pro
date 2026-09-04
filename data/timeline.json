@@ -1,0 +1,74 @@
+{
+  "experience": [
+    {
+      "period": "2025 - 2026",
+      "category": "experience",
+      "title": {
+        "es": "Planner.uy",
+        "en": "Planner.uy"
+      },
+      "role": {
+        "es": "Desarrollo web / Freelance",
+        "en": "Web development / Freelance"
+      },
+      "description": {
+        "es": "Colaboración en la modernización de sitios web y productos digitales para empresas y startups. Reconstrucción de interfaces, desarrollo de landing pages y creación de experiencias interactivas con PHP, Sass y GSAP.",
+        "en": "Collaboration on the modernization of websites and digital products for companies and startups. Interface rebuilds, landing pages, and interactive experiences using PHP, Sass, and GSAP."
+      },
+      "tags": ["PHP", "Sass", "GSAP", "Frontend"]
+    },
+    {
+      "period": "Sep 2018 - Sep 2023",
+      "category": "experience",
+      "title": {
+        "es": "SportRadar",
+        "en": "SportRadar"
+      },
+      "role": {
+        "es": "Monitoreo de datos en tiempo real",
+        "en": "Real-time data monitoring"
+      },
+      "description": {
+        "es": "Monitoreo y validación de datos deportivos en vivo durante eventos profesionales. El trabajo fortaleció mi atención al detalle, la precisión y la capacidad de tomar decisiones con información en constante cambio.",
+        "en": "Monitoring and validation of live sports data during professional events. This work strengthened my attention to detail, accuracy, and ability to make decisions with constantly changing information."
+      },
+      "tags": ["Real-time data", "Validation", "Analysis"]
+    },
+    {
+      "period": "2016 - 2018",
+      "category": "experience",
+      "title": {
+        "es": "Alorica",
+        "en": "Alorica"
+      },
+      "role": {
+        "es": "Customer Service Representative / Amazon España",
+        "en": "Customer Service Representative / Amazon Spain"
+      },
+      "description": {
+        "es": "Atención y soporte a clientes del mercado español dentro de un proyecto internacional, resolviendo consultas e incidencias con procedimientos y estándares de calidad.",
+        "en": "Customer support for the Spanish market within an international project, resolving questions and incidents while following quality procedures and standards."
+      },
+      "tags": ["Customer support", "Communication", "Problem solving"]
+    }
+  ],
+  "education": [
+    {
+      "period": "2024",
+      "category": "education",
+      "title": {
+        "es": "SoyHenry",
+        "en": "SoyHenry"
+      },
+      "role": {
+        "es": "Bootcamp de Desarrollo Web Full Stack",
+        "en": "Full Stack Web Development Bootcamp"
+      },
+      "description": {
+        "es": "Formación intensiva y práctica en desarrollo web full stack, con proyectos colaborativos, trabajo en equipo y metodologías ágiles.",
+        "en": "Intensive, hands-on training in full stack web development, with collaborative projects, teamwork, and agile methodologies."
+      },
+      "tags": ["HTML", "CSS", "JavaScript", "React", "Node.js", "PostgreSQL"]
+    }
+  ]
+}
