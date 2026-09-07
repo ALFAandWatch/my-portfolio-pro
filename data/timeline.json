@@ -12,8 +12,8 @@
         "en": "Web development / Freelance"
       },
       "description": {
-        "es": "Colaboración en la modernización de sitios web y productos digitales para empresas y startups. Reconstrucción de interfaces, desarrollo de landing pages y creación de experiencias interactivas con PHP, Sass y GSAP.",
-        "en": "Collaboration on the modernization of websites and digital products for companies and startups. Interface rebuilds, landing pages, and interactive experiences using PHP, Sass, and GSAP."
+        "es": "Colaboración en la modernización de sitios web y productos digitales para empresas y startups. Aunque mi formación se enfocaba principalmente en React, el proyecto me requirió trabajar con sitios construidos mediante módulos de PHP, además de Sass y GSAP. Esta experiencia me permitió comprobar mi capacidad para aprender y adaptarme rápidamente a nuevas tecnologías cuando las necesidades del proyecto lo requieren.",
+        "en": "Collaboration on the modernization of websites and digital products for companies and startups. Although my training was mainly focused on React, the project required me to work with websites built through PHP modules, as well as Sass and GSAP. This experience showed me that I can learn and adapt quickly to new technologies when a project requires it."
       },
       "tags": ["PHP", "Sass", "GSAP", "Frontend"]
     },
@@ -29,8 +29,8 @@
         "en": "Real-time data monitoring"
       },
       "description": {
-        "es": "Monitoreo y validación de datos deportivos en vivo durante eventos profesionales. El trabajo fortaleció mi atención al detalle, la precisión y la capacidad de tomar decisiones con información en constante cambio.",
-        "en": "Monitoring and validation of live sports data during professional events. This work strengthened my attention to detail, accuracy, and ability to make decisions with constantly changing information."
+        "es": "Monitoreo y validación de datos deportivos en vivo durante eventos profesionales. Era un trabajo que requería multitarea constante y una extrema atención al detalle: pequeños errores podían afectar la calidad de la información, por lo que debía trabajar de forma meticulosa y precisa. Esta experiencia despertó mi interés por el desarrollo web. Al reconocer una necesidad concreta en el trabajo, me propuse crear SportTickers, mi primera aplicación simple, para organizar y encontrar más fácilmente los marcadores deportivos y recursos relacionados.",
+        "en": "Monitoring and validation of live sports data during professional events. The role required constant multitasking and extreme attention to detail: small errors could affect data quality, so the work had to be meticulous and precise. This experience sparked my interest in web development. After recognizing a concrete need at work, I decided to build SportTickers, my first simple application, to organize and find sports tickers and related resources more easily."
       },
       "tags": ["Real-time data", "Validation", "Analysis"]
     },
@@ -46,8 +46,8 @@
         "en": "Customer Service Representative / Amazon Spain"
       },
       "description": {
-        "es": "Atención y soporte a clientes del mercado español dentro de un proyecto internacional, resolviendo consultas e incidencias con procedimientos y estándares de calidad.",
-        "en": "Customer support for the Spanish market within an international project, resolving questions and incidents while following quality procedures and standards."
+        "es": "Atención y soporte a clientes del mercado español dentro de un proyecto internacional, resolviendo consultas e incidencias con procedimientos y estándares de calidad. Aunque no era un puesto de desarrollo o programación, me permitió entrenar habilidades blandas que hoy aplico al trabajo técnico: reconocer un problema, analizarlo con pensamiento crítico y encontrar la solución más efectiva para cada situación.",
+        "en": "Customer support for the Spanish market within an international project, resolving questions and incidents while following quality procedures and standards. Although it was not a development or programming role, it helped me build soft skills that I now apply to technical work: recognizing a problem, analyzing it through critical thinking, and finding the most effective solution for each situation."
       },
       "tags": ["Customer support", "Communication", "Problem solving"]
     }

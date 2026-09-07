@@ -10,6 +10,7 @@ import enDictionary from '@/dictionaries/en.json';
 import type { Dictionary, Lang } from '@/types/i18b';
 import TimelineSection from '@/components/TimelineSection';
 import ProjectsSection from '@/components/ProjectsSection';
+import StackSection from '@/components/StackSection';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -39,7 +40,7 @@ function HeroScene({
          <div className="flex w-full min-w-0 shrink-0 items-center justify-center px-4 py-4 sm:py-6 lg:h-full lg:w-1/2 lg:px-10 lg:py-12">
             <div
                ref={portraitRef}
-               className="relative aspect-3/4 w-32 overflow-hidden rounded-2xl rounded-bl-[12rem] rounded-tr-[12rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(5,150,105,0.35)] dark:shadow-[0_20px_60px_rgba(139,92,246,0.35)] sm:w-44 lg:w-full lg:max-w-sm"
+               className="relative aspect-3/4 w-52 max-h-[36dvh] overflow-hidden rounded-2xl rounded-bl-[7rem] rounded-tr-[7rem] lg:rounded-bl-[12rem] lg:rounded-tr-[12rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(5,150,105,0.35)] dark:shadow-[0_20px_60px_rgba(139,92,246,0.35)] sm:w-60 sm:max-h-none lg:w-full lg:max-w-sm"
             >
                <Image
                   style={{ opacity }}
@@ -54,7 +55,7 @@ function HeroScene({
          </div>
 
          <div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-2 px-4 py-4 sm:py-6 lg:w-1/2 lg:px-10 lg:py-12 lg:gap-4">
-            <h1 className="text-2xl font-extrabold tracking-tight text-gray-600 dark:text-gray-100 md:text-3xl lg:text-7xl">
+            <h1 className="text-2xl font-extrabold tracking-tight text-gray-100 md:text-3xl lg:text-7xl">
                Full Stack Developer{' '}
                <span style={{ opacity }} className={`text-violet-500 shine`}>
                   / Frontend Focus.
@@ -115,6 +116,18 @@ export default function PageContent({ lang }: { lang: Lang }) {
             };
          };
 
+         const getPortraitBorderRadius = () => {
+            const portrait = portraitRef.current;
+
+            if (!portrait) {
+               return '1rem';
+            }
+
+            const styles = window.getComputedStyle(portrait);
+
+            return `${styles.borderTopLeftRadius} ${styles.borderTopRightRadius} ${styles.borderBottomRightRadius} ${styles.borderBottomLeftRadius}`;
+         };
+
          const getCoverBounds = () => {
             const stage = stageRef.current;
             const portrait = portraitRef.current;
@@ -160,7 +173,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
             y: initialBounds.y,
             width: initialBounds.width,
             height: initialBounds.height,
-            borderRadius: '1rem 12rem 1rem 12rem',
+            borderRadius: getPortraitBorderRadius(),
          });
 
          gsap
@@ -242,6 +255,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
             </section>
          </div>
 
+         {/* ====================================== SECCION ABOUT ======================================= */}
          <section
             id="about"
             className="w-full overflow-hidden bg-zinc-100 px-6 py-24 dark:bg-zinc-950 sm:px-10 lg:px-20 lg:py-32"
@@ -280,37 +294,63 @@ export default function PageContent({ lang }: { lang: Lang }) {
                               : 'I collect video games and editions gathered throughout different stages of my life. Every piece has its own story and deserves a special place.'}
                         </p>
                      </div>
-                     <div className="relative grid min-h-[28rem] grid-cols-5 gap-4 sm:min-h-[34rem] sm:gap-6">
+                     <div className="relative grid min-h-[22rem] grid-cols-5 items-start gap-0 sm:min-h-[32rem] sm:gap-3 lg:min-h-[32rem] lg:gap-5">
                         <div
-                           className="col-span-3 mt-10 aspect-[4/5] rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900"
+                           className="relative z-10 col-span-2 origin-left scale-110 aspect-[9/16] overflow-hidden rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 lg:scale-105"
                            aria-label="Photo placeholder 1"
-                        />
+                        >
+                           <Image
+                              src="/games/nes.png"
+                              alt="NES collection"
+                              fill
+                              sizes="(min-width: 1024px) 60vw, 100vw"
+                              className="object-cover"
+                           />
+                        </div>
                         <div
-                           className="col-span-2 aspect-square rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900"
+                           className="relative col-span-3 -mt-2 translate-x-1 aspect-[4/3] overflow-hidden rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 lg:mt-2 lg:translate-x-2"
                            aria-label="Photo placeholder 2"
-                        />
+                        >
+                           <Image
+                              src="/games/gamecube.png"
+                              alt="GameCube collection"
+                              fill
+                              sizes="(min-width: 1024px) 60vw, 100vw"
+                              className="object-cover"
+                           />
+                        </div>
                         <div
-                           className="absolute bottom-0 right-[8%] aspect-[4/3] w-2/5 rotate-3 rounded-[1.5rem] border-8 border-zinc-100 bg-zinc-300/70 dark:border-zinc-950 dark:bg-zinc-800"
+                           className="absolute -bottom-2 right-0 z-20 aspect-[4/3] w-2/3 rotate-3 overflow-hidden rounded-2xl border-8 border-zinc-100 bg-zinc-300/70 dark:border-zinc-950 dark:bg-zinc-800 lg:-bottom-4 lg:right-2 lg:w-3/5"
                            aria-label="Photo placeholder 3"
-                        />
+                        >
+                           <Image
+                              src="/games/pokemon.png"
+                              alt="Pokémon collection"
+                              fill
+                              sizes="(min-width: 1024px) 60vw, 100vw"
+                              className="object-cover"
+                           />
+                        </div>
                      </div>
                   </div>
 
                   <div className="grid min-h-[80dvh] items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
                      <div className="order-2 lg:order-1">
                         <div
-                           className="relative aspect-video w-full rotate-1 rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900"
+                           className="relative mx-auto aspect-[7/10] w-full max-w-xl rotate-1 overflow-hidden rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900"
                            aria-label={
                               lang === 'es'
                                  ? 'Espacio para un video'
                                  : 'Video placeholder'
                            }
                         >
-                           <span className="absolute inset-0 flex items-center justify-center text-sm text-zinc-500">
-                              {lang === 'es'
-                                 ? 'Video próximamente'
-                                 : 'Video coming soon'}
-                           </span>
+                           <Image
+                              src="/games/smash.png"
+                              alt="Super Smash Bros."
+                              fill
+                              sizes="(min-width: 1024px) 60vw, 100vw"
+                              className="object-cover"
+                           />
                         </div>
                      </div>
                      <div className="order-1 max-w-sm lg:order-2">
@@ -345,20 +385,22 @@ export default function PageContent({ lang }: { lang: Lang }) {
                         </p>
                      </div>
                      <div className="lg:pl-16">
-                        <div
-                           className="aspect-[5/4] -rotate-2 rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900"
-                           aria-label={
-                              lang === 'es'
-                                 ? 'Espacio para una foto'
-                                 : 'Photo placeholder'
-                           }
-                        />
+                        <div className="aspect-[5/4] -rotate-2 rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 relative overflow-hidden">
+                           <Image
+                              src="/feedback.png"
+                              alt="Feedback example"
+                              fill
+                              sizes="(min-width: 1024px) 60vw, 100vw"
+                              className="object-cover"
+                           />
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
          </section>
 
+         {/* ====================================== SECCION WORK ======================================= */}
          <section
             id="work"
             className="w-full bg-white px-6 py-24 dark:bg-black sm:px-10 lg:px-20"
@@ -428,13 +470,18 @@ export default function PageContent({ lang }: { lang: Lang }) {
             </div>
          </section>
 
+         {/* ====================================== SECCION TIMELINE ======================================= */}
          <TimelineSection lang={lang} />
+         <StackSection lang={lang} />
+
+         {/* ====================================== SECCION PROYECTOS ======================================= */}
          <ProjectsSection
             projects={dictionary.projects}
             labels={dictionary.labels}
             lang={lang}
          />
 
+         {/* ====================================== SECCION CONTACT ======================================= */}
          <section
             id="contact"
             className="w-full bg-zinc-100 px-6 py-24 dark:bg-zinc-950 sm:px-10 lg:px-20 lg:py-32"

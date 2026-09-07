@@ -30,37 +30,26 @@ body {
 /* ============================================= */
 
 .shine {
-   background: linear-gradient(
-      110deg,
-      #8b5cf6 0%,
-      #8b5cf6 42%,
-      #ffffff 50%,
-      #8b5cf6 58%,
-      #8b5cf6 100%
-   );
-
    background-size: 300% 100%;
    background-position: 100% center;
 
    -webkit-background-clip: text;
    background-clip: text;
 
-   color: transparent;
-
-   animation: text-light 2s ease-in-out infinite;
+   animation: neonize 1s ease-in-out infinite alternate;
 }
 
-@keyframes text-light {
-   0%,
-   65% {
-      background-position: 100% center;
+@keyframes neonize {
+   from {
+      filter: drop-shadow(0 0 0px oklch(96.7% 0.003 264.542))
+         drop-shadow(0 0 0px #8b5cf6) drop-shadow(0 0 0px #8b5cf6)
+         drop-shadow(0 0 0px #8b5cf6);
+      color: rgba(243, 244, 246, 0.8);
    }
-
-   85% {
-      background-position: 0% center;
-   }
-
-   100% {
-      background-position: 0% center;
+   to {
+      filter: drop-shadow(0 0 2px oklch(96.7% 0.003 264.542))
+         drop-shadow(0 0 5px #8b5cf6) drop-shadow(0 0 9px #8b5cf6)
+         drop-shadow(0 0 16px #8b5cf6);
+      color: oklch(96.7% 0.003 264.542);
    }
 }
