@@ -40,11 +40,11 @@ function HeroScene({
          <div className="flex w-full min-w-0 shrink-0 items-center justify-center px-4 py-4 sm:py-6 lg:h-full lg:w-1/2 lg:px-10 lg:py-12">
             <div
                ref={portraitRef}
-               className="relative aspect-3/4 w-52 max-h-[36dvh] overflow-hidden rounded-2xl rounded-bl-[7rem] rounded-tr-[7rem] lg:rounded-bl-[12rem] lg:rounded-tr-[12rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(5,150,105,0.35)] dark:shadow-[0_20px_60px_rgba(139,92,246,0.35)] sm:w-60 sm:max-h-none lg:w-full lg:max-w-sm"
+               className="relative aspect-3/4 w-52 max-h-[36dvh] overflow-clip rounded-2xl rounded-bl-[7rem] rounded-tr-[7rem] lg:rounded-bl-[12rem] lg:rounded-tr-[12rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(5,150,105,0.35)] dark:shadow-[0_20px_60px_rgba(139,92,246,0.35)] sm:w-60 sm:max-h-none lg:w-full lg:max-w-sm"
             >
                <Image
                   style={{ opacity }}
-                  src="/perfil2.png"
+                  src="/profilepic.png"
                   alt={decorative ? '' : 'Alfonso Gonzalez'}
                   fill
                   priority={!decorative}
@@ -272,8 +272,8 @@ export default function PageContent({ lang }: { lang: Lang }) {
                   </h2>
                   <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
                      {lang === 'es'
-                        ? 'Además del código, hay pequeñas obsesiones, recuerdos y objetos que me acompañan desde hace años. Esta es una mirada más personal, fuera de la pantalla de trabajo.'
-                        : 'Beyond code, there are small obsessions, memories, and objects that have stayed with me over the years. This is a more personal look, away from the work screen.'}
+                        ? 'Quiero comenzar compartiendo algo un poco más personal, para que puedan conocer a la persona detrás del desarrollador y las cosas que me hacen feliz. Más allá de ser desarrollador web, también soy una persona con pequeñas obsesiones, recuerdos y objetos que forman parte de mi vida desde hace años.'
+                        : 'I want to start by sharing something a little more personal, so you can get to know the person behind the developer and the things that make me happy. Beyond being a web developer, I’m also someone with little obsessions, memories, and objects that have been part of my life for years.'}
                   </p>
                </div>
 
@@ -290,13 +290,13 @@ export default function PageContent({ lang }: { lang: Lang }) {
                         </h3>
                         <p className="mt-5 leading-relaxed text-zinc-600 dark:text-zinc-400">
                            {lang === 'es'
-                              ? 'Colecciono videojuegos y ediciones que fueron apareciendo en distintas etapas de mi vida. Cada pieza tiene su propia historia y merece un lugar especial.'
-                              : 'I collect video games and editions gathered throughout different stages of my life. Every piece has its own story and deserves a special place.'}
+                              ? '¡Soy un ’90s kid! Siempre fui un apasionado de los videojuegos, desde que jugué Super Mario Bros. por primera vez de niño. Ese cariño por los videojuegos terminó convirtiéndose en una colección de consolas, ediciones especiales y juegos que fui reuniendo a lo largo de diferentes etapas de mi vida. Cada pieza tiene su propia historia y merece un lugar especial.'
+                              : 'I’m a ’90s kid! I’ve been a video game enthusiast ever since I first played Super Mario Bros. as a kid. That love for gaming eventually turned into a collection of consoles, special editions, and games that I’ve gathered throughout different stages of my life. Every piece has its own story and deserves a special place.'}
                         </p>
                      </div>
-                     <div className="relative grid min-h-[22rem] grid-cols-5 items-start gap-0 sm:min-h-[32rem] sm:gap-3 lg:min-h-[32rem] lg:gap-5">
+                     <div className="relative grid min-h-88 grid-cols-5 items-start gap-0 sm:min-h-128 sm:gap-3 lg:min-h-128 lg:gap-5">
                         <div
-                           className="relative z-10 col-span-2 origin-left scale-110 aspect-[9/16] overflow-hidden rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 lg:scale-105"
+                           className="relative z-10 col-span-2 origin-left scale-110 aspect-9/16 overflow-hidden rounded-4xl border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 lg:scale-105"
                            aria-label="Photo placeholder 1"
                         >
                            <Image
@@ -308,7 +308,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            />
                         </div>
                         <div
-                           className="relative col-span-3 -mt-2 translate-x-1 aspect-[4/3] overflow-hidden rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 lg:mt-2 lg:translate-x-2"
+                           className="relative col-span-3 -mt-2 translate-x-1 aspect-4/3 overflow-hidden rounded-4xl border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 lg:mt-2 lg:translate-x-2"
                            aria-label="Photo placeholder 2"
                         >
                            <Image
@@ -320,7 +320,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            />
                         </div>
                         <div
-                           className="absolute -bottom-2 right-0 z-20 aspect-[4/3] w-2/3 rotate-3 overflow-hidden rounded-2xl border-8 border-zinc-100 bg-zinc-300/70 dark:border-zinc-950 dark:bg-zinc-800 lg:-bottom-4 lg:right-2 lg:w-3/5"
+                           className="absolute -bottom-2 right-0 z-20 aspect-4/3 w-2/3 rotate-3 overflow-hidden rounded-2xl border-8 border-zinc-100 bg-zinc-300/70 dark:border-zinc-950 dark:bg-zinc-800 lg:-bottom-4 lg:right-2 lg:w-3/5"
                            aria-label="Photo placeholder 3"
                         >
                            <Image
@@ -336,14 +336,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
 
                   <div className="grid min-h-[80dvh] items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
                      <div className="order-2 lg:order-1">
-                        <div
-                           className="relative mx-auto aspect-[7/10] w-full max-w-xl rotate-1 overflow-hidden rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900"
-                           aria-label={
-                              lang === 'es'
-                                 ? 'Espacio para un video'
-                                 : 'Video placeholder'
-                           }
-                        >
+                        <div className="relative mx-auto aspect-7/10 w-full max-w-xl rotate-1 overflow-hidden rounded-4xl border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900">
                            <Image
                               src="/games/smash.png"
                               alt="Super Smash Bros."
@@ -358,13 +351,51 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            02 / 03
                         </span>
                         <h3 className="mt-4 text-3xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-4xl">
-                           Super Smash Bros.
+                           Super Smash Bros. Ultimate
                         </h3>
-                        <p className="mt-5 leading-relaxed text-zinc-600 dark:text-zinc-400">
-                           {lang === 'es'
-                              ? 'También me gusta jugar Super Smash Bros. Es ese tipo de juego al que siempre se puede volver: competitivo, caótico y perfecto para compartir con amigos.'
-                              : 'I also enjoy playing Super Smash Bros. It is the kind of game you can always come back to: competitive, chaotic, and perfect for sharing with friends.'}
-                        </p>
+                        <div className="mt-5 space-y-4 text-zinc-600 dark:text-zinc-400">
+                           {lang === 'es' ? (
+                              <>
+                                 <p className="leading-relaxed">
+                                    Uno de mis juegos favoritos, especialmente
+                                    para jugar con amigos. Es un juego del que
+                                    nunca me canso. Tengo la suerte de que,
+                                    incluso ahora en 2026, todavía puedo
+                                    juntarme con mis amigos —los mismos con los
+                                    que me juntaba en el liceo— y jugar
+                                    videojuegos juntos, en persona, no online.
+                                 </p>
+
+                                 <p className="leading-relaxed">
+                                    Así son los viernes a la noche por acá. Nos
+                                    juntamos, jugamos un rato y, obviamente,
+                                    cuando alguno gana, no perdemos la
+                                    oportunidad de gastarnos un poco entre
+                                    nosotros.
+                                 </p>
+                              </>
+                           ) : (
+                              <>
+                                 <p className="leading-relaxed">
+                                    One of my favorite games, especially when
+                                    playing with friends. It’s a game I never
+                                    get tired of. I’m lucky enough that, even
+                                    now in 2026, I can still get together with
+                                    my friends—the same ones I used to hang out
+                                    with back in high school—and play video
+                                    games together, in person, not online.
+                                 </p>
+
+                                 <p className="leading-relaxed">
+                                    This is what Friday nights look like around
+                                    here. We get together, play some games, and,
+                                    obviously, whenever someone wins, we never
+                                    miss the chance to give each other a bit of
+                                    shit.
+                                 </p>
+                              </>
+                           )}
+                        </div>
                      </div>
                   </div>
 
@@ -378,14 +409,44 @@ export default function PageContent({ lang }: { lang: Lang }) {
                               ? 'El feedback también es parte de la experiencia.'
                               : 'Feedback is part of the experience, too.'}
                         </h3>
-                        <p className="mt-5 leading-relaxed text-zinc-600 dark:text-zinc-400">
-                           {lang === 'es'
-                              ? 'Me molesta cuando un formulario no responde después de hacer submit. ¿Se envió? ¿Falló? ¿Qué debo corregir? Para mí, una interfaz debe acompañar al usuario y dejar claro qué está pasando.'
-                              : 'I dislike when a form gives no response after submitting. Was it sent? Did it fail? What should I fix? To me, an interface should guide users and make clear what is happening.'}
-                        </p>
+                        <div className="mt-5 space-y-4 text-zinc-600 dark:text-zinc-400">
+                           {lang === 'es' ? (
+                              <>
+                                 <p className="leading-relaxed">
+                                    Cuando alguien interactúa con una interfaz,
+                                    no debería tener que adivinar qué acaba de
+                                    pasar. Si un formulario fue enviado, si una
+                                    acción tuvo éxito o si algo salió mal, la
+                                    interfaz debería dejarlo claro.
+                                 </p>
+                                 <p className="leading-relaxed">
+                                    Es un detalle al que le presto especial
+                                    atención cuando desarrollo. Me gusta que
+                                    cada acción tenga una respuesta clara y que
+                                    el usuario siempre sepa qué está pasando.
+                                 </p>
+                              </>
+                           ) : (
+                              <>
+                                 <p className="leading-relaxed">
+                                    When someone interacts with an interface,
+                                    they shouldn’t have to guess what just
+                                    happened. If a form was submitted, an action
+                                    was successful, or something went wrong, the
+                                    interface should make it clear.
+                                 </p>
+                                 <p className="leading-relaxed">
+                                    It’s a detail I pay close attention to when
+                                    I develop. I like every action to have a
+                                    clear response, so users always know what’s
+                                    happening.
+                                 </p>
+                              </>
+                           )}
+                        </div>
                      </div>
                      <div className="lg:pl-16">
-                        <div className="aspect-[5/4] -rotate-2 rounded-[2rem] border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 relative overflow-hidden">
+                        <div className="aspect-5/4 -rotate-2 rounded-4xl border border-dashed border-zinc-400 bg-zinc-200/60 dark:border-zinc-700 dark:bg-zinc-900 relative overflow-hidden">
                            <Image
                               src="/feedback.png"
                               alt="Feedback example"
@@ -411,8 +472,8 @@ export default function PageContent({ lang }: { lang: Lang }) {
                </p>
                <h2 className="mt-5 max-w-2xl text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   {lang === 'es'
-                     ? 'Interfaces que conectan personas y productos.'
-                     : 'Interfaces that connect people and products.'}
+                     ? 'Interfaces pensadas para funcionar, no solamente para verse bien.'
+                     : 'Interfaces designed to work, not just to look good.'}
                </h2>
                <div className="mt-14 grid gap-5 md:grid-cols-3">
                   {(lang === 'es'
@@ -420,34 +481,34 @@ export default function PageContent({ lang }: { lang: Lang }) {
                           [
                              '01',
                              'Frontend',
-                             'Componentes sólidos, accesibles y preparados para crecer.',
+                             'Construyo interfaces modernas, responsive y reutilizables con React, Next.js y TypeScript.',
                           ],
                           [
                              '02',
                              'Interacción',
-                             'Animaciones con propósito para guiar y sorprender.',
+                             'Cada acción debería tener una respuesta clara. Trabajo con estados, feedback y animaciones para que el usuario siempre entienda qué está pasando.',
                           ],
                           [
                              '03',
-                             'Estrategia',
-                             'Decisiones simples que convierten objetivos en resultados.',
+                             'Full Stack',
+                             'Mi foco está en Frontend, pero también entiendo lo que ocurre detrás de la interfaz: APIs, autenticación, bases de datos y backend.',
                           ],
                        ]
                      : [
                           [
                              '01',
                              'Frontend',
-                             'Solid, accessible components built to scale.',
+                             'I build modern, responsive, and reusable interfaces with React, Next.js, and TypeScript.',
                           ],
                           [
                              '02',
                              'Interaction',
-                             'Purposeful motion that guides and delights.',
+                             'Every action should have a clear response. I work with state, feedback, and motion so users always understand what is happening.',
                           ],
                           [
                              '03',
-                             'Strategy',
-                             'Simple decisions that turn goals into results.',
+                             'Full Stack',
+                             'My focus is Frontend, but I also understand what happens behind the interface: APIs, authentication, databases, and backend.',
                           ],
                        ]
                   ).map(([number, title, description]) => (
@@ -494,10 +555,10 @@ export default function PageContent({ lang }: { lang: Lang }) {
                   {lang === 'es' ? 'Hablemos.' : "Let's talk."}
                </h2>
 
-               <div className="mt-12 grid overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-zinc-300/30 dark:bg-zinc-900 dark:shadow-black/20 lg:grid-cols-[0.75fr_1.25fr]">
+               <div className="mt-12 grid overflow-hidden rounded-4xl bg-white shadow-xl shadow-zinc-300/30 dark:bg-zinc-900 dark:shadow-black/20 lg:grid-cols-[0.75fr_1.25fr]">
                   <div className="relative min-h-80 bg-zinc-900 lg:min-h-full">
                      <Image
-                        src="/perfil2.png"
+                        src="/profilepic.png"
                         alt="Alfonso González"
                         fill
                         sizes="(min-width: 1024px) 30vw, 100vw"
@@ -522,7 +583,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                                  <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
                                     {item.label}
                                  </dt>
-                                 <dd className="mt-2 break-words text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                                 <dd className="mt-2 wrap-break-word text-sm font-medium text-zinc-700 dark:text-zinc-200">
                                     {item.value}
                                  </dd>
                               </div>

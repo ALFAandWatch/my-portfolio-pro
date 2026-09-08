@@ -45,6 +45,7 @@ const stackGroups = [
          ['Render', 'render1'],
          ['Expo', 'expo'],
          ['React Native', 'react'],
+         ['Codex', 'codex'],
       ],
    ],
 ] as const;
