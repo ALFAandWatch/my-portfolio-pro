@@ -391,7 +391,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                                     here. We get together, play some games, and,
                                     obviously, whenever someone wins, we never
                                     miss the chance to give each other a bit of
-                                    shit.
+                                    sh*t.
                                  </p>
                               </>
                            )}
