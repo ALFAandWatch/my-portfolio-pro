@@ -11,6 +11,7 @@ import type { Dictionary, Lang } from '@/types/i18b';
 import TimelineSection from '@/components/TimelineSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import StackSection from '@/components/StackSection';
+import { useVisits } from '@/hooks/useVisits';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -32,11 +33,16 @@ function HeroScene({
    opacity,
    portraitRef,
 }: HeroSceneProps) {
+   const visits = useVisits();
+
    return (
       <div
          className="flex h-full w-full flex-col lg:flex-row"
          aria-hidden={decorative}
       >
+         <p className="absolute top-0 left-0 text-sm text-gray-500 dark:text-gray-400 mt-2 opacity-0 hover:opacity-100 transition duration-75 hidden lg:block">
+            👀 {visits} visitas
+         </p>
          <div className="flex w-full min-w-0 shrink-0 items-center justify-center px-4 py-4 sm:py-6 lg:h-full lg:w-1/2 lg:px-10 lg:py-12">
             <div
                ref={portraitRef}
