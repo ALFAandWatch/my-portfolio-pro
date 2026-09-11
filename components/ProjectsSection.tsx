@@ -98,7 +98,7 @@ export default function ProjectsSection({
          {selectedProject && (
             <div
                role="presentation"
-               className="fixed inset-0 z-60 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+               className="fixed inset-0 z-60 flex items-center justify-center bg-black/70 p-2 backdrop-blur-sm sm:p-4"
                onMouseDown={(event) => {
                   if (event.target === event.currentTarget)
                      setSelectedProject(null);
@@ -107,27 +107,45 @@ export default function ProjectsSection({
                <div
                   role="dialog"
                   aria-modal="true"
-                  aria-labelledby="project-title"
-                  className="relative max-h-[90dvh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl dark:bg-zinc-950"
+                  aria-labelledby={`project-title-${selectedProject.id}`}
+                  className="relative flex max-h-[calc(100dvh-1rem)] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-zinc-950 sm:max-h-[calc(100dvh-2rem)]"
                >
                   <button
                      type="button"
                      aria-label={lang === 'es' ? 'Cerrar' : 'Close'}
                      onClick={() => setSelectedProject(null)}
-                     className="absolute right-4 top-4 z-10 rounded-full bg-black/60 px-3 py-1 text-xl leading-none text-white transition hover:bg-black/80"
+                     className="absolute right-3 top-3 z-20 rounded-full bg-black/60 px-3 py-1 text-xl leading-none text-white transition hover:bg-black/80"
                   >
                      ×
                   </button>
-                  <div className="relative aspect-video w-full bg-zinc-900">
-                     <Image
-                        src={selectedProject.image}
-                        alt=""
-                        fill
-                        sizes="(min-width: 672px) 672px, 100vw"
-                        className="object-cover"
-                     />
+                  <div className="relative h-[24dvh] min-h-32 w-full shrink-0 bg-zinc-900 sm:h-[28dvh]">
+                     {selectedProject.video ? (
+                        <video
+                           controls
+                           playsInline
+                           preload="metadata"
+                           poster={selectedProject.image}
+                           className="size-full object-cover"
+                        >
+                           <source
+                              src={selectedProject.video}
+                              type="video/mp4"
+                           />
+                           {lang === 'es'
+                              ? 'Tu navegador no puede reproducir este video.'
+                              : 'Your browser cannot play this video.'}
+                        </video>
+                     ) : (
+                        <Image
+                           src={selectedProject.image}
+                           alt={selectedProject.title}
+                           fill
+                           sizes="(min-width: 768px) 768px, 100vw"
+                           className="object-cover"
+                        />
+                     )}
                   </div>
-                  <div className="p-6 text-center sm:p-8">
+                  <div className="min-h-0 flex flex-col items-center overflow-hidden p-4 sm:p-6">
                      <div className="flex flex-wrap gap-2">
                         {selectedProject.featured && (
                            <Badge variant="featured">{labels.featured}</Badge>
@@ -142,15 +160,15 @@ export default function ProjectsSection({
                         )}
                      </div>
                      <h3
-                        id="project-title"
-                        className="mt-4 text-3xl font-bold text-zinc-800 dark:text-zinc-100"
+                        id={`project-title-${selectedProject.id}`}
+                        className="mt-3 text-2xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-3xl"
                      >
                         {selectedProject.title}
                      </h3>
-                     <p className="mt-5 leading-relaxed text-zinc-600 dark:text-zinc-400">
+                     <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
                         {selectedProject.fullDescription}
                      </p>
-                     <div className="mt-6 flex flex-wrap justify-center gap-2">
+                     <div className="mt-4 flex flex-wrap gap-2">
                         {selectedProject.stack.map((item) => (
                            <span
                               key={item}
@@ -160,16 +178,30 @@ export default function ProjectsSection({
                            </span>
                         ))}
                      </div>
-                     {selectedProject.link && (
-                        <a
-                           href={selectedProject.link}
-                           target="_blank"
-                           rel="noreferrer"
-                           className="mt-8 inline-flex rounded-full bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:bg-emerald-700 dark:bg-violet-500 dark:hover:bg-violet-600"
-                        >
-                           {labels.visit}
-                        </a>
-                     )}
+                     <div className="mt-5 flex flex-wrap gap-3">
+                        {selectedProject.link && (
+                           <a
+                              href={selectedProject.link}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 dark:bg-violet-500 dark:hover:bg-violet-600"
+                           >
+                              {labels.visit}
+                           </a>
+                        )}
+                        {selectedProject.repository && (
+                           <a
+                              href={selectedProject.repository}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex rounded-full border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                           >
+                              {lang === 'es'
+                                 ? 'Ver repositorio'
+                                 : 'View repository'}
+                           </a>
+                        )}
+                     </div>
                   </div>
                </div>
             </div>

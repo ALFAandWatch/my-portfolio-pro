@@ -31,6 +31,7 @@
          "fullDescription": "CompanyRadar es una aplicación web que permite descubrir y explorar empresas según su categoría y presencia geográfica. Los usuarios pueden navegar perfiles de empresas, ver enlaces relevantes y sugerir nuevas compañías mediante un formulario. El proyecto está construido con Next.js (App Router) y TailwindCSS, utilizando Supabase como backend para la gestión y almacenamiento de datos. Se enfoca en una interfaz limpia, un modelo de datos simple y una experiencia de usuario fluida.",
          "image": "/thumbnails/CompanyRadar1.png",
          "link": "https://company-radar-sepia.vercel.app/es",
+         "repository": "https://github.com/ALFAandWatch/company-directory",
          "inProgress": false,
          "featured": true,
          "academic": false,
@@ -43,6 +44,7 @@
          "fullDescription": "Aplicación de clima desarrollada con React Native, enfocada en consultar el estado actual y pronóstico por ciudad o ubicación. Incluye búsqueda, favoritos, cambio de unidades y modo claro/oscuro, consumiendo datos en tiempo real desde una API externa.",
          "image": "/thumbnails/clima-app.png",
          "link": "",
+         "repository": "https://github.com/ALFAandWatch/clima-app",
          "inProgress": false,
          "featured": false,
          "stack": ["React Native", "Expo", "JavaScript"],
@@ -51,11 +53,12 @@
       },
       {
          "id": 3,
-         "title": "Primeros Paso",
+         "title": "Primer Paso",
          "shortDescription": "Incubadora de empresas.",
          "fullDescription": "Proyecto de incubadora de empresas en etapa de desarrollo, orientado a impulsar PYMES locales y apoyar iniciativas de crecimiento económico. Actualmente en la última fase antes de su despliegue.",
          "image": "/thumbnails/primerPaso.png",
          "link": "https://incubadora-demo.vercel.app/",
+         "repository": "https://github.com/ALFAandWatch/primerosPasos-FrontEnd",
          "inProgress": false,
          "featured": false,
          "stack": ["NextJs", "TailwindCSS", "Supabase"]
@@ -67,6 +70,7 @@
          "fullDescription": "Colaboré con Planner en el desarrollo de productos digitales para startups y empresas, trabajando en diseño web, frontend y experiencias interactivas para convertir ideas en interfaces accesibles y visualmente atractivas.",
          "image": "/thumbnails/planner.png",
          "link": "https://planner.uy/",
+         "repository": "",
          "inProgress": false,
          "featured": false,
          "stack": ["HTML5", "PHP", "SASS", "GSAP"]
@@ -78,6 +82,7 @@
          "fullDescription": "Este proyecto surgió como una idea que propuse en mi trabajo en SportRadar, que trabaja con estadisticas deportivas y mercados de apuestas: se trata de una librería organizada de enlaces a tickers deportivos. Comenzó en HTML y PHP y luego lo reconstruí con React. Actualmente, el frontend está en Vercel y el backend en Supabase.",
          "image": "/thumbnails/sport-tickers.png",
          "link": "https://sportstickers-supabase.vercel.app/",
+         "repository": "https://github.com/ALFAandWatch/sportstickers---supabase",
          "inProgress": false,
          "featured": true,
          "stack": ["NextJs", "TailwindCSS", "Supabase"]
@@ -89,6 +94,7 @@
          "fullDescription": "Proyecto desarrollado durante mi curso, con diseño libre. Construido con Next.js (App Router) y TailwindCSS, incluye registro, login, carrito y checkout funcional. El frontend está en Vercel, el backend en Render y la base de datos en Supabase, ofreciendo una experiencia fluida y responsiva.",
          "image": "/thumbnails/clickNest0.png",
          "link": "https://clicknest-rho.vercel.app/",
+         "repository": "https://github.com/ALFAandWatch/ClickNest",
          "inProgress": false,
          "featured": false,
          "academic": true,
