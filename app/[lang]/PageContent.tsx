@@ -596,11 +596,93 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            ))}
                         </dl>
                      </div>
-                     <p className="mt-12 text-sm text-zinc-400 opacity-0">
+                     <p className="max-w-xl mt-12 leading-relaxed text-lg font-medium text-zinc-700 dark:text-zinc-200">
                         {lang === 'es'
-                           ? 'Estoy abierto a oportunidades junior, posiciones trainee y equipos donde pueda aportar, seguir aprendiendo y crecer profesionalmente.'
-                           : 'I’m open to junior opportunities, trainee positions, and teams where I can contribute, continue learning, and grow professionally.'}
+                           ? '¿Te interesa trabajar conmigo? ¡Hablemos!'
+                           : 'Interested in working with me? Let’s talk!'}
                      </p>
+                     <div className="mt-6 flex flex-wrap gap-3">
+                        <a
+                           href="mailto:alfonso.gonzalezwebdev@gmail.com"
+                           aria-label={
+                              lang === 'es' ? 'Enviar email' : 'Send email'
+                           }
+                           className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-3 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:px-5 dark:bg-violet-500 dark:hover:bg-violet-600 dark:focus-visible:outline-violet-400"
+                        >
+                           <Image
+                              src="/social/email.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                           />
+                           <span className="hidden sm:inline">
+                              {lang === 'es' ? 'Enviar email' : 'Send email'}
+                           </span>
+                        </a>
+                        <a
+                           href="/Resume-Alfonso-Gonzalez-Desarrollador-Fullstack.pdf"
+                           download
+                           aria-label={
+                              lang === 'es' ? 'Descargar CV' : 'Download CV'
+                           }
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                        >
+                           <Image
+                              src="/social/download.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                           />
+                           <span className="hidden sm:inline">
+                              {lang === 'es' ? 'Descargar CV' : 'Download CV'}
+                           </span>
+                        </a>
+                        <a
+                           href="https://www.linkedin.com/in/alfonso-gonzalez-desarrollador/"
+                           aria-label="LinkedIn"
+                           rel="noreferrer"
+                           target="_blank"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                        >
+                           <Image
+                              src="/social/linkedin.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                           />
+                           <span className="hidden sm:inline">LinkedIn</span>
+                        </a>
+                        <a
+                           href="https://github.com/ALFAandWatch"
+                           target="_blank"
+                           rel="noreferrer"
+                           aria-label="GitHub"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                        >
+                           <Image
+                              src="/social/github.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                           />
+                           <span className="hidden sm:inline">GitHub</span>
+                        </a>
+                        <a
+                           href={`https://wa.me/59899567652?text=${encodeURIComponent('¡Hola, Alfonso! Me gustaría hablar contigo sobre una oportunidad laboral.')}`}
+                           target="_blank"
+                           rel="noreferrer"
+                           aria-label="WhatsApp"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                        >
+                           <Image
+                              src="/social/whatsapp.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                           />
+                           <span className="hidden sm:inline">WhatsApp</span>
+                        </a>
+                     </div>
                   </div>
                </div>
             </div>
