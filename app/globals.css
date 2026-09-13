@@ -8,8 +8,8 @@
 @theme inline {
    --color-background: var(--background);
    --color-foreground: var(--foreground);
-   --font-sans: var(--font-geist-sans);
-   --font-mono: var(--font-geist-mono);
+   --font-sans: var(--font-poppins);
+   --font-mono: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +22,7 @@
 body {
    background: var(--background);
    color: var(--foreground);
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: var(--font-poppins);
 }
 
 /* ============================================= */
@@ -36,20 +36,31 @@ body {
    -webkit-background-clip: text;
    background-clip: text;
 
+   color: rgba(243, 244, 246, 0.8);
+
    animation: neonize 1s ease-in-out infinite alternate;
 }
 
 @keyframes neonize {
    from {
       filter: drop-shadow(0 0 0px oklch(96.7% 0.003 264.542))
-         drop-shadow(0 0 0px #8b5cf6) drop-shadow(0 0 0px #8b5cf6)
          drop-shadow(0 0 0px #8b5cf6);
-      color: rgba(243, 244, 246, 0.8);
    }
    to {
-      filter: drop-shadow(0 0 2px oklch(96.7% 0.003 264.542))
-         drop-shadow(0 0 5px #8b5cf6) drop-shadow(0 0 9px #8b5cf6)
-         drop-shadow(0 0 16px #8b5cf6);
-      color: oklch(96.7% 0.003 264.542);
+      filter: drop-shadow(0 0 4px oklch(96.7% 0.003 264.542))
+         drop-shadow(0 0 10px rgb(139, 92, 246));
+   }
+}
+
+.neonShadow {
+   border-color: rgba(167, 139, 250, var(--neon-opacity));
+   box-shadow:
+      0 0 12px rgba(167, 139, 250, var(--neon-opacity)),
+      inset 0 0 18px rgba(139, 92, 246, 0.12);
+}
+
+@media (max-width: 1023px) {
+   .neonShadow {
+      box-shadow: none;
    }
 }
