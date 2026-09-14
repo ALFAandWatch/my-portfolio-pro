@@ -368,7 +368,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
             className="w-full bg-zinc-100 px-6 py-24 dark:bg-zinc-950 sm:px-10 lg:px-20 lg:py-32"
          >
             <div className="mx-auto w-full max-w-6xl">
-               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600 dark:text-violet-400">
+               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
                   {lang === 'es' ? 'Contacto' : 'Contact'}
                </p>
                <h2 className="mt-5 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -421,7 +421,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            aria-label={
                               lang === 'es' ? 'Enviar email' : 'Send email'
                            }
-                           className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-3 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:px-5 dark:bg-violet-500 dark:hover:bg-violet-600 dark:focus-visible:outline-violet-400"
+                           className="inline-flex items-center justify-center gap-2 rounded-full px-3 py-3 text-sm font-semibold text-white transition focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-5 bg-cyan-500 hover:bg-cyan-600 focus-visible:outline-cyan-300"
                         >
                            <Image
                               src="/social/email.png"
@@ -435,11 +435,11 @@ export default function PageContent({ lang }: { lang: Lang }) {
                         </a>
                         <a
                            href="/Resume-Alfonso-Gonzalez-Desarrollador-Fullstack.pdf"
-                           download
                            aria-label={
                               lang === 'es' ? 'Descargar CV' : 'Download CV'
                            }
-                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                           target="_blank"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 hover:border-cyan-400 hover:text-cyan-300 focus-visible:outline-cyan-400"
                         >
                            <Image
                               src="/social/download.png"
@@ -456,7 +456,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            aria-label="LinkedIn"
                            rel="noreferrer"
                            target="_blank"
-                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 hover:border-cyan-400 hover:text-cyan-300 focus-visible:outline-cyan-400"
                         >
                            <Image
                               src="/social/linkedin.png"
@@ -471,7 +471,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            target="_blank"
                            rel="noreferrer"
                            aria-label="GitHub"
-                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 hover:border-cyan-400 hover:text-cyan-300 focus-visible:outline-cyan-400"
                         >
                            <Image
                               src="/social/github.png"
@@ -486,7 +486,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                            target="_blank"
                            rel="noreferrer"
                            aria-label="WhatsApp"
-                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition hover:border-violet-400 hover:text-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-violet-400 dark:hover:text-violet-300"
+                           className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-3 text-sm font-semibold text-zinc-700 transition focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-5 dark:border-zinc-700 dark:text-zinc-200 hover:border-cyan-400 hover:text-cyan-300 focus-visible:outline-cyan-400"
                         >
                            <Image
                               src="/social/whatsapp.png"

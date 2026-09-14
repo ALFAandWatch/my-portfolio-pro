@@ -12,7 +12,6 @@ const stackGroups = [
          ['TypeScript', 'typescript'],
          ['JavaScript', 'javascript'],
          ['Tailwind CSS', 'tailwind'],
-         ['Sass', 'sass'],
          ['Bootstrap', 'bootstrap'],
          ['HTML5', 'html5'],
          ['CSS3', 'css3'],
@@ -26,14 +25,7 @@ const stackGroups = [
          ['Node.js', 'nodejs'],
          ['Express', 'express'],
          ['Supabase', 'supabase'],
-         ['REST APIs', 'rest-api'],
-      ],
-   ],
-   [
-      'Databases',
-      [
          ['PostgreSQL', 'postgresql'],
-         ['MySQL', 'mysql'],
       ],
    ],
    [
@@ -42,9 +34,15 @@ const stackGroups = [
          ['Git', 'git'],
          ['GitHub', 'github'],
          ['Vercel', 'vercel1'],
-         ['Render', 'render1'],
+      ],
+   ],
+   [
+      'I experimented a little with',
+      [
+         ['Sass', 'sass'],
          ['Expo', 'expo'],
          ['React Native', 'react'],
+         ['Render', 'render1'],
          ['Codex', 'codex'],
       ],
    ],
@@ -57,7 +55,7 @@ export default function StackSection({ lang }: { lang: Lang }) {
          className="w-full bg-zinc-100 px-6 py-24 dark:bg-zinc-950 sm:px-10 lg:px-20 lg:py-32"
       >
          <div className="mx-auto w-full max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600 dark:text-violet-400">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
                {lang === 'es' ? 'Herramientas' : 'Toolkit'}
             </p>
             <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -80,7 +78,7 @@ export default function StackSection({ lang }: { lang: Lang }) {
                         {technologies.map(([name, slug]) => (
                            <article
                               key={slug}
-                              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5 text-center transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-violet-400 hover:shadow-xl hover:shadow-violet-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-violet-400"
+                              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5 text-center transition-[transform,border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:-translate-y-1.5 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-zinc-900"
                            >
                               <div className="relative size-14 transition-transform duration-300 ease-out group-hover:rotate-3 group-hover:scale-110">
                                  <Image

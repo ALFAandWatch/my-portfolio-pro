@@ -24,7 +24,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                      aria-current={isActive ? 'page' : undefined}
                      className={`rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${
                         isActive
-                           ? 'bg-emerald-600 text-white dark:bg-violet-500'
+                           ? 'text-white bg-cyan-300'
                            : 'text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-900'
                      }`}
                   >

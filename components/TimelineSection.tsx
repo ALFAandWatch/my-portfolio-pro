@@ -33,16 +33,14 @@ function TimelineGroup({
                data-timeline-card
                className="relative pl-8 opacity-0 transition-transform duration-300 hover:-translate-y-1"
             >
-               <span className="absolute left-0 top-2 size-2 rounded-full ring-4 ring-white bg-violet-400 dark:ring-black" />
-               <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-violet-400 hover:shadow-lg hover:shadow-violet-500/10 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-violet-400 sm:p-8">
+               <span className="absolute left-0 top-2 size-2 rounded-full ring-4 ring-white bg-cyan-200 dark:ring-black" />
+               <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                      <div>
                         <h3 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-100">
                            {entry.title[lang]}
                         </h3>
-                        <p className="mt-1 text-violet-400">
-                           {entry.role[lang]}
-                        </p>
+                        <p className="mt-1 text-cyan-200">{entry.role[lang]}</p>
                      </div>
                      <time className="shrink-0 text-sm font-medium text-zinc-500">
                         {entry.period}
@@ -101,7 +99,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
          className="w-full bg-zinc-100 px-6 py-24 dark:bg-zinc-950 sm:px-10 lg:px-20"
       >
          <div className="mx-auto w-full max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-400">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
                {lang === 'es' ? 'Recorrido' : 'Journey'}
             </p>
             <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

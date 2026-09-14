@@ -40,7 +40,7 @@ export default function ProjectsSection({
          className="w-full bg-white px-6 py-24 dark:bg-black sm:px-10 lg:px-20"
       >
          <div className="mx-auto w-full max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600 dark:text-violet-400">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
                {lang === 'es' ? 'Selección' : 'Selected work'}
             </p>
             <h2 className="mt-5 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
