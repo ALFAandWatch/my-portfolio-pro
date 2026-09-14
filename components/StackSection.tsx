@@ -21,7 +21,6 @@ const stackGroups = [
    [
       'Backend',
       [
-         ['PHP', 'php'],
          ['Node.js', 'nodejs'],
          ['Express', 'express'],
          ['Supabase', 'supabase'],
@@ -37,8 +36,10 @@ const stackGroups = [
       ],
    ],
    [
-      'I experimented a little with',
+      'A little experience with',
       [
+         ['PHP', 'php'],
+         ['Python', 'python'],
          ['Sass', 'sass'],
          ['Expo', 'expo'],
          ['React Native', 'react'],
@@ -52,7 +53,7 @@ export default function StackSection({ lang }: { lang: Lang }) {
    return (
       <section
          id="stack"
-         className="w-full bg-zinc-100 px-6 py-24 dark:bg-zinc-950 sm:px-10 lg:px-20 lg:py-32"
+         className="w-full px-6 py-24 bg-black sm:px-10 lg:px-20 lg:py-32"
       >
          <div className="mx-auto w-full max-w-6xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">

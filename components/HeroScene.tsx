@@ -38,7 +38,7 @@ export default function HeroScene({
                      fill
                      priority={!decorative}
                      sizes="(min-width: 1024px) 32vw, 11rem"
-                     className="object-cover object-[center_-50%] lg:object-[center_20%]"
+                     className="object-cover object-[center_20%] lg:object-[center_20%]"
                   />
                </div>
             </div>
