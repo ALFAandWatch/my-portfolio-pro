@@ -378,7 +378,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                <div className="mt-12 grid overflow-hidden rounded-4xl bg-white shadow-xl shadow-zinc-300/30 dark:bg-zinc-900 dark:shadow-black/20 lg:grid-cols-[0.75fr_1.25fr]">
                   <div className="relative min-h-80 bg-zinc-900 lg:min-h-full">
                      <Image
-                        src="/profilepic.png"
+                        src="/profilepic2.png"
                         alt="Alfonso González"
                         fill
                         sizes="(min-width: 1024px) 30vw, 100vw"

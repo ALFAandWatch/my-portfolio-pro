@@ -38,7 +38,7 @@ export default function HeroScene({
                      fill
                      priority={!decorative}
                      sizes="(min-width: 1024px) 32vw, 11rem"
-                     className="object-cover object-[center_-10%] lg:object-[center_top]"
+                     className="object-cover object-[center_-50%] lg:object-[center_20%]"
                   />
                </div>
             </div>
@@ -55,7 +55,10 @@ export default function HeroScene({
                   </div>
                   <h1 className="text-xl font-extrabold tracking-tight text-gray-100 sm:text-2xl md:text-4xl">
                      Full Stack Developer{' '}
-                     <span style={{ opacity }} className="text-violet-500 shine">
+                     <span
+                        style={{ opacity }}
+                        className="text-violet-500 shine"
+                     >
                         / Frontend Focus.
                      </span>
                   </h1>
@@ -77,10 +80,30 @@ export default function HeroScene({
             </div>
             <div className="flex justify-center gap-6 pb-2 sm:gap-10 lg:pb-20">
                {[
-                  ['01', 'Email', '/social/email.png', 'mailto:alfonso.gonzalezwebdev@gmail.com'],
-                  ['02', 'Github', '/stack/github.png', 'https://github.com/ALFAandWatch'],
-                  ['03', 'LinkedIn', '/social/linkedin.png', 'https://www.linkedin.com/in/alfonsogonzalez-desarrollador/'],
-                  ['04', 'CV', '/social/document.png', '/Resume-Alfonso-Gonzalez-Desarrollador-Fullstack.pdf'],
+                  [
+                     '01',
+                     'Email',
+                     '/social/email.png',
+                     'mailto:alfonso.gonzalezwebdev@gmail.com',
+                  ],
+                  [
+                     '02',
+                     'Github',
+                     '/stack/github.png',
+                     'https://github.com/ALFAandWatch',
+                  ],
+                  [
+                     '03',
+                     'LinkedIn',
+                     '/social/linkedin.png',
+                     'https://www.linkedin.com/in/alfonsogonzalez-desarrollador/',
+                  ],
+                  [
+                     '04',
+                     'CV',
+                     '/social/document.png',
+                     '/Resume-Alfonso-Gonzalez-Desarrollador-Fullstack.pdf',
+                  ],
                ].map(([id, slug, image, action]) => (
                   <a
                      href={action}
