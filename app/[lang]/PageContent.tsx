@@ -1,145 +1,20 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, type Ref } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
 import esDictionary from '@/dictionaries/es.json';
 import enDictionary from '@/dictionaries/en.json';
 import type { Lang } from '@/types/i18b';
 import TimelineSection from '@/components/TimelineSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import StackSection from '@/components/StackSection';
-import { useVisits } from '@/hooks/useVisits';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { useHeroAnimation } from '@/hooks/useHeroAnimation';
+import HeroScene from '@/components/HeroScene';
 
 const dictionaries = {
    es: esDictionary,
    en: enDictionary,
 };
-
-type HeroSceneProps = {
-   lang: Lang;
-   decorative?: boolean;
-   opacity: number;
-   portraitRef?: Ref<HTMLDivElement>;
-};
-
-function HeroScene({
-   lang,
-   decorative = false,
-   opacity,
-   portraitRef,
-}: HeroSceneProps) {
-   const visits = useVisits();
-
-   return (
-      <div className="h-full w-full" aria-hidden={decorative}>
-         <div className="flex h-full w-full flex-col items-center justify-center gap-2 pb-6 lg:justify-center lg:gap-0 lg:pb-0">
-            <p className="absolute top-0 left-0 text-sm text-gray-500 dark:text-gray-400 mt-2 opacity-0 hover:opacity-100 transition duration-75 hidden lg:block">
-               👀 {visits} visitas
-            </p>
-            <div className="flex w-full min-w-0 shrink-0 items-center justify-center px-4 py-4 sm:py-6 lg:w-1/2 lg:px-10">
-               <div
-                  ref={portraitRef}
-                  className="relative mt-4 aspect-square w-40 max-h-[25dvh] overflow-clip rounded-full border border-white/10 shadow-[0_0_20px_rgba(162,244,253,0.35)] sm:mt-6 sm:w-48 sm:max-h-[28dvh] lg:mt-10 lg:w-full lg:max-w-50 lg:max-h-none"
-               >
-                  <Image
-                     style={{ opacity }}
-                     src="/profilepic.png"
-                     alt={decorative ? '' : 'Alfonso Gonzalez'}
-                     fill
-                     priority={!decorative}
-                     sizes="(min-width: 1024px) 32vw, 11rem"
-                     className="object-cover object-[center_-10%] lg:object-[center_top]"
-                  />
-               </div>
-            </div>
-
-            <div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-2 px-4 py-4 sm:py-6 lg:w-2/3 lg:px-10 lg:py-0">
-               <div className="rounded-3xl lg:flex lg:flex-col mx-auto text-center">
-                  <div className="mt-2 text-xl md:text-2xl lg:text-4xl">
-                     <p className="mb-2 text-3xl font-bold text-gray-100 sm:text-4xl lg:text-5xl">
-                        {lang === 'es' ? 'Hola, soy' : 'Hi, I’m'}{' '}
-                        <span className="bg-linear-to-r from-[#6D28D9] to-[#0E7490] bg-clip-text dark:from-[#8B5CF6] dark:to-[#22D3EE] text-transparent">
-                           Alfonso González
-                        </span>
-                     </p>
-                  </div>
-                  <h1 className="text-xl font-extrabold tracking-tight text-gray-100 sm:text-2xl md:text-4xl">
-                     Full Stack Developer{' '}
-                     <span
-                        style={{ opacity }}
-                        className="text-violet-500 shine"
-                     >
-                        / Frontend Focus.
-                     </span>
-                  </h1>
-
-                  <p
-                     className="mt-3 text-xs text-gray-400 sm:text-sm lg:mt-4 lg:text-lg"
-                     style={{ opacity }}
-                  >
-                     {lang === 'es'
-                        ? 'Soy un desarrollador especializado en Next.js, con experiencia construyendo aplicaciones de punta a punta. Mi foco está en Frontend: crear interfaces modernas, funcionales y agradables de usar, sin perder de vista todo lo que ocurre detrás.'
-                        : 'I’m a developer specializing in Next.js, with experience building end-to-end applications. My focus is on Frontend: creating modern, functional, and enjoyable-to-use interfaces, while keeping sight of everything happening behind the scenes.'}
-                  </p>
-                  <p
-                     className="mt-3 text-xs sm:text-sm lg:mt-5 lg:text-lg text-cyan-200"
-                     style={{ opacity }}
-                  >
-                     alfonso.gonzalezwebdev@gmail.com | +59899567652
-                  </p>
-               </div>
-            </div>
-            <div className="flex justify-center gap-6 pb-2 sm:gap-10 lg:pb-20">
-               {[
-                  [
-                     '01',
-                     'Email',
-                     '/social/email.png',
-                     'mailto:alfonso.gonzalezwebdev@gmail.com',
-                  ],
-                  [
-                     '02',
-                     'Github',
-                     '/stack/github.png',
-                     'https://github.com/ALFAandWatch',
-                  ],
-                  [
-                     '03',
-                     'LinkedIn',
-                     '/social/linkedin.png',
-                     'https://www.linkedin.com/in/alfonso-gonzalez-desarrollador/',
-                  ],
-                  [
-                     '04',
-                     'CV',
-                     '/social/document.png',
-                     '/Resume-Alfonso-Gonzalez-Desarrollador-Fullstack.pdf',
-                  ],
-               ].map(([id, slug, image, action]) => (
-                  <a
-                     href={action}
-                     key={id}
-                     className="flex flex-col justify-center items-center text-gray-400 transition-margin duration-300 hover:drop-shadow-[0_0_15px_rgb(34,211,238)] hover:text-cyan-200 hover:scale-110 pointer-events-auto cursor-pointer"
-                     target="_blank"
-                     rel="noreferrer"
-                     style={{ opacity }}
-                  >
-                     <div className="relative aspect-square w-7 sm:w-8">
-                        <Image src={image} alt={slug} fill />{' '}
-                     </div>
-                     {slug}
-                  </a>
-               ))}
-            </div>
-         </div>
-      </div>
-   );
-}
 
 export default function PageContent({ lang }: { lang: Lang }) {
    const sceneRef = useRef<HTMLDivElement>(null);
@@ -149,127 +24,13 @@ export default function PageContent({ lang }: { lang: Lang }) {
    const portraitRef = useRef<HTMLDivElement>(null);
    const dictionary = dictionaries[lang];
 
-   useGSAP(
-      () => {
-         const getCircleClipPath = (
-            width: number,
-            height: number,
-            x: number,
-            y: number
-         ) =>
-            `circle(${Math.min(width, height) / 2}px at ${x + width / 2}px ${y + height / 2}px)`;
-
-         const getInitialBounds = () => {
-            const stage = stageRef.current;
-            const portrait = portraitRef.current;
-
-            if (!stage || !portrait) {
-               return null;
-            }
-
-            const stageBounds = stage.getBoundingClientRect();
-            const portraitBounds = portrait.getBoundingClientRect();
-
-            return {
-               width: portraitBounds.width,
-               height: portraitBounds.height,
-               x: portraitBounds.left - stageBounds.left,
-               y: portraitBounds.top - stageBounds.top,
-            };
-         };
-
-         const getCoverBounds = () => {
-            const stage = stageRef.current;
-            const portrait = portraitRef.current;
-
-            if (!stage || !portrait) {
-               return null;
-            }
-
-            const stageBounds = stage.getBoundingClientRect();
-            const overscan = 32;
-            const diameter =
-               Math.hypot(stageBounds.width, stageBounds.height) + overscan * 2;
-
-            return {
-               width: diameter,
-               height: diameter,
-               x: (stageBounds.width - diameter) / 2,
-               y: (stageBounds.height - diameter) / 2,
-            };
-         };
-
-         const initialBounds = getInitialBounds();
-
-         if (!initialBounds) {
-            return;
-         }
-
-         gsap.set(revealRef.current, {
-            clipPath: getCircleClipPath(
-               initialBounds.width,
-               initialBounds.height,
-               initialBounds.x,
-               initialBounds.y
-            ),
-         });
-         gsap.set(outlineRef.current, {
-            x: initialBounds.x,
-            y: initialBounds.y,
-            width: initialBounds.width,
-            height: initialBounds.height,
-            borderRadius: '50%',
-         });
-
-         gsap
-            .timeline({
-               scrollTrigger: {
-                  trigger: sceneRef.current,
-                  start: 'top top+=64',
-                  end: '+=200%',
-                  pin: sceneRef.current,
-                  pinSpacing: true,
-                  scrub: 0.8,
-                  anticipatePin: 1,
-                  invalidateOnRefresh: true,
-               },
-            })
-            .to(revealRef.current, {
-               clipPath: () => {
-                  const coverBounds = getCoverBounds();
-
-                  return coverBounds
-                     ? getCircleClipPath(
-                          coverBounds.width,
-                          coverBounds.height,
-                          coverBounds.x,
-                          coverBounds.y
-                       )
-                     : 'circle(100% at 50% 50%)';
-               },
-               ease: 'none',
-               duration: 1,
-            })
-            .to(
-               outlineRef.current,
-               {
-                  x: () => getCoverBounds()?.x ?? 0,
-                  y: () => getCoverBounds()?.y ?? 0,
-                  width: () =>
-                     `${getCoverBounds()?.width ?? window.innerWidth}px`,
-                  height: () =>
-                     `${getCoverBounds()?.height ?? window.innerHeight}px`,
-                  borderRadius: '50%',
-                  ease: 'none',
-                  duration: 1,
-               },
-               0
-            )
-            // Mantiene el Hero fijado un momento después de completar la expansión.
-            .to({}, { duration: 0.8 });
-      },
-      { scope: sceneRef }
-   );
+   useHeroAnimation({
+      sceneRef,
+      stageRef,
+      revealRef,
+      outlineRef,
+      portraitRef,
+   });
 
    return (
       <>
@@ -283,25 +44,26 @@ export default function PageContent({ lang }: { lang: Lang }) {
                <div
                   id="This"
                   ref={revealRef}
-                  className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-clip will-change-[clip-path] aspect-square rounded-full"
+                  className=" absolute inset-0 z-10 h-full w-full overflow-clip will-change-[clip-path] aspect-square rounded-full"
                >
+                  {/* revealRef tenia pointer-events-none, volver a agregar si se encuentran malos comportamientos deribados de su falta */}
                   <HeroScene lang={lang} decorative opacity={1} />
                </div>
 
                <div
                   ref={outlineRef}
                   aria-hidden="true"
-                  className="pointer-events-none absolute left-0 top-0 overflow-clip z-20 box-border border-3 border-violet-400/40 will-change-[transform,width,height] aspect-square rounded-full"
+                  className="pointer-events-none absolute left-0 top-0 overflow-clip z-20 box-border border-3 border-cyan-400/30 will-change-[transform,width,height] aspect-square rounded-full"
                   style={{
                      backgroundImage:
-                        'radial-gradient(rgba(123,241,167,0), rgba(123,241,167,0), rgba(34,211,238, 0.6))',
+                        'radial-gradient(rgba(123,241,167,0), rgba(123,241,167,0), rgba(34,211,238, 0.4))',
                   }}
                />
             </section>
          </div>
 
          {/* ====================================== SECCION ABOUT ======================================= */}
-         <section
+         {/* <section
             id="about"
             className="relative w-full overflow-clip px-6 py-24 sm:px-10 lg:px-20 lg:py-20 text-shadow-lg text-shadow-black"
          >
@@ -515,7 +277,7 @@ export default function PageContent({ lang }: { lang: Lang }) {
                   </div>
                </div>
             </div>
-         </section>
+         </section> */}
 
          {/* ====================================== SECCION WORK ======================================= */}
          <section
@@ -589,6 +351,8 @@ export default function PageContent({ lang }: { lang: Lang }) {
 
          {/* ====================================== SECCION TIMELINE ======================================= */}
          <TimelineSection lang={lang} />
+
+         {/* ====================================== SECCION STACK ======================================= */}
          <StackSection lang={lang} />
 
          {/* ====================================== SECCION PROYECTOS ======================================= */}
