@@ -20,12 +20,15 @@ export default function HeroScene({
 }: HeroSceneProps) {
    const visits = useVisits();
 
+   const iconSize = 30;
+
    return (
       <div className="h-full w-full" aria-hidden={decorative}>
          <div className="flex h-full w-full flex-col items-center justify-center gap-2 pb-6 lg:justify-center lg:gap-0 lg:pb-0">
             <p className="absolute top-0 left-0 mt-2 hidden text-sm text-gray-500 opacity-0 transition duration-75 hover:opacity-100 dark:text-gray-400 lg:block">
                👀 {visits} visitas
             </p>
+
             <div className="flex w-full min-w-0 shrink-0 items-center justify-center px-4 py-4 sm:py-6 lg:w-1/2 lg:px-10">
                <div
                   ref={portraitRef}
@@ -42,10 +45,54 @@ export default function HeroScene({
                   />
                </div>
             </div>
+            <div className="flex flex-col w-[60%] mx-auto">
+               <div
+                  className="flex justify-end items-center gap-10"
+                  style={{
+                     opacity,
+                  }}
+               >
+                  <Image
+                     src="/stack/nextjs-white.png"
+                     alt="Next.js"
+                     width={iconSize}
+                     height={iconSize}
+                     style={{
+                        filter: 'drop-shadow(0 0 10px rgba(34, 211, 238, 1))',
+                        opacity,
+                     }}
+                  />
+                  <Image
+                     src="/stack/typescript-white.png"
+                     alt="Typescript"
+                     width={iconSize}
+                     height={iconSize}
+                     className="p-1"
+                     style={{
+                        filter: 'drop-shadow(0 0 10px rgba(34, 211, 238, 1))',
+                        opacity,
+                     }}
+                  />
+                  <Image
+                     src="/stack/nodejs-white.png"
+                     alt="Node.js"
+                     width={iconSize}
+                     height={iconSize}
+                     style={{
+                        filter: 'drop-shadow(0 0 10px rgba(34, 211, 238, 1))',
+                        opacity,
+                     }}
+                  />
+               </div>
+               <hr
+                  className={`border border-cyan-400/20 shadow-[0_0_4px_rgba(34,211,238,0.3),0_0_20px_rgba(34,211,238,0.4)] mt-2`}
+                  style={{ opacity }}
+               />
+            </div>
 
             <div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-2 px-4 py-4 sm:py-6 lg:w-2/3 lg:px-10 lg:py-0">
                <div className="mx-auto rounded-3xl text-center lg:flex lg:flex-col">
-                  <div className="mt-2 text-xl md:text-2xl lg:text-4xl">
+                  <div className="mt-2 text-xl md:text-2xl lg:text-4xl lg:pt-4">
                      <p className="mb-2 text-3xl font-bold text-gray-100 sm:text-4xl lg:text-5xl">
                         {lang === 'es' ? 'Hola, soy' : 'Hi, I’m'}{' '}
                         <span className="bg-linear-to-r from-[#6D28D9] to-[#0E7490] bg-clip-text text-transparent dark:from-[#8B5CF6] dark:to-[#22D3EE]">
@@ -53,17 +100,17 @@ export default function HeroScene({
                         </span>
                      </p>
                   </div>
-                  <h1 className="text-xl font-extrabold tracking-tight text-gray-100 sm:text-2xl md:text-4xl">
+                  <h1
+                     className="text-xl font-extrabold tracking-tight text-gray-100/50 sm:text-2xl md:text-4xl lg:pb-4"
+                     style={{ opacity }}
+                  >
                      Full Stack Developer{' '}
-                     <span
-                        style={{ opacity }}
-                        className="text-violet-500 shine"
-                     >
+                     <span className="text-violet-500 shine">
                         / Frontend Focus.
                      </span>
                   </h1>
                   <p
-                     className="mt-3 text-xs text-gray-400 sm:text-sm lg:mt-4 lg:text-lg"
+                     className="text-xs text-gray-400 sm:text-sm lg:text-lg"
                      style={{ opacity }}
                   >
                      {lang === 'es'
@@ -78,7 +125,7 @@ export default function HeroScene({
                   </p>
                </div>
             </div>
-            <div className="flex justify-center gap-6 pb-2 sm:gap-10 lg:pb-20">
+            <div className="flex justify-center gap-6 pb-4 sm:gap-10 lg:pb-30 lg:pt-5">
                {[
                   [
                      '01',

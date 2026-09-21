@@ -39,7 +39,11 @@ export default function PageContent({ lang }: { lang: Lang }) {
                ref={stageRef}
                className="relative h-full w-full overflow-hidden"
             >
-               <HeroScene lang={lang} opacity={0.2} portraitRef={portraitRef} />
+               <HeroScene
+                  lang={lang}
+                  opacity={0.08}
+                  portraitRef={portraitRef}
+               />
 
                <div
                   id="This"
