@@ -95,6 +95,7 @@ export function useHeroAnimation({
                   pin: sceneRef.current,
                   pinSpacing: true,
                   scrub: 5,
+                  refreshPriority: 1,
                   anticipatePin: 1,
                   invalidateOnRefresh: true,
                },
