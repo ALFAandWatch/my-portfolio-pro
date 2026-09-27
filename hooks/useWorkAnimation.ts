@@ -22,12 +22,13 @@ export function useWorkAnimation({ workRef }: WorkAnimationRefs) {
                x: 0,
                opacity: 0.8,
                ease: 'circ.out',
+               duration: 1.5,
                scrollTrigger: {
                   trigger: '.work-title',
                   start: 'top 90%',
-                  end: 'top 20%',
+                  end: 'top -=300',
                   invalidateOnRefresh: true,
-                  scrub: 1,
+                  once: true,
                },
             }
          );
@@ -35,7 +36,7 @@ export function useWorkAnimation({ workRef }: WorkAnimationRefs) {
          ScrollTrigger.create({
             trigger: '.work-title-wrapper',
             start: 'top 20%',
-            end: '+=1000',
+            end: '+=1500',
             pin: true,
             pinSpacing: false,
          });
@@ -50,7 +51,7 @@ export function useWorkAnimation({ workRef }: WorkAnimationRefs) {
                card,
                {
                   y: 160,
-                  opacity: 1,
+                  opacity: 0,
                   rotateY: 90,
                   rotateZ: 20,
                },

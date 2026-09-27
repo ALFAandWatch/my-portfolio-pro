@@ -26,15 +26,16 @@ function TimelineGroup({
    });
 
    return (
-      <div className="relative space-y-8 before:absolute before:bottom-4 before:left-[0.45rem] before:top-4 before:w-px before:bg-zinc-300 dark:before:bg-zinc-700">
-         {orderedEntries.map((entry) => (
+      <div className="relative perspective-distant space-y-8 before:absolute before:bottom-4 before:left-[0.45rem] before:top-4 before:w-px before:bg-zinc-300 dark:before:bg-zinc-700">
+         {orderedEntries.map((entry, i) => (
             <article
                key={`${entry.title[lang]}-${entry.period}`}
                data-timeline-card
-               className="relative pl-8 opacity-0 transition-transform duration-300 hover:-translate-y-1"
+               style={{ transformStyle: 'preserve-3d', zIndex: -i }}
+               className="relative pl-8 opacity-0 duration-300"
             >
                <span className="absolute left-0 top-2 size-2 rounded-full ring-4 ring-white bg-cyan-200 dark:ring-black" />
-               <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
+               <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-300 hover:-translate-2 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                      <div>
                         <h3 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-100">
@@ -74,20 +75,86 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
 
    useGSAP(
       () => {
-         gsap.set('[data-timeline-card]', { y: 24 });
-
-         gsap.to('[data-timeline-card]', {
-            y: 24,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0.16,
-            ease: 'power2.out',
-            scrollTrigger: {
-               trigger: sectionRef.current,
-               start: 'top 75%',
-               once: true,
+         gsap.fromTo(
+            '.timeline-title',
+            {
+               x: 1500,
+               opacity: 0.2,
             },
+            {
+               x: 0,
+               opacity: 0.8,
+               ease: 'circ.out',
+               duration: 1.5,
+               scrollTrigger: {
+                  trigger: '.timeline-title',
+                  start: 'top 90%',
+                  end: 'top -=400',
+                  invalidateOnRefresh: true,
+                  once: true,
+               },
+            }
+         );
+
+         const subtitles = gsap.utils.toArray<HTMLElement>(
+            '.timeline-subtitle',
+            sectionRef.current
+         );
+         subtitles.forEach((subtitle) => {
+            gsap.fromTo(
+               subtitle,
+               {
+                  x: 1500,
+                  opacity: 0.2,
+               },
+               {
+                  x: 0,
+                  opacity: 0.8,
+                  ease: 'circ.out',
+                  duration: 1.5,
+                  delay: 2,
+                  scrollTrigger: {
+                     trigger: subtitle,
+                     start: 'top 90%',
+                     end: 'top -=400',
+                     invalidateOnRefresh: true,
+                     once: true,
+                  },
+               }
+            );
          });
+
+         const timelineCard = gsap.utils.toArray<HTMLElement>(
+            '[data-timeline-card]',
+            sectionRef.current
+         );
+         timelineCard.forEach((card) =>
+            gsap.fromTo(
+               card,
+               {
+                  opacity: 0.3,
+                  y: 600,
+                  scale: 0.2,
+                  rotateX: -180,
+               },
+               {
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                  rotateX: 0,
+                  duration: 1.2,
+                  ease: 'back.out(2)',
+                  scrollTrigger: {
+                     trigger: card,
+                     start: 'top 80%',
+                     once: true,
+                     markers: false,
+                  },
+               }
+            )
+         );
+
+         ScrollTrigger.refresh();
       },
       { scope: sectionRef }
    );
@@ -96,20 +163,17 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
       <section
          ref={sectionRef}
          id="experience"
-         className="w-full px-6 py-24 bg-black sm:px-10 lg:px-20"
+         className="w-full px-6 py-24 bg-black sm:px-10 lg:px-20 overflow-hidden"
       >
          <div className="mx-auto w-full max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
-               {lang === 'es' ? 'Recorrido' : 'Journey'}
-            </p>
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <h2 className="timeline-title mt-5 max-w-3xl text-5xl font-bold tracking-tight text-cyan-200 sm:text-5xl">
                {lang === 'es'
                   ? 'Experiencia y formación'
                   : 'Experience and education'}
             </h2>
             <div className="mt-14 space-y-16">
                <div>
-                  <h3 className="mb-8 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
+                  <h3 className="timeline-subtitle mb-8 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
                      {lang === 'es'
                         ? 'Experiencia profesional'
                         : 'Professional experience'}
@@ -120,7 +184,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                   />
                </div>
                <div>
-                  <h3 className="mb-8 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
+                  <h3 className="timeline-subtitle mb-8 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
                      {lang === 'es' ? 'Estudios' : 'Education'}
                   </h3>
                   <TimelineGroup entries={timelineData.education} lang={lang} />

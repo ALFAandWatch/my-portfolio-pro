@@ -2,6 +2,12 @@
 
 import Image from 'next/image';
 import type { Lang } from '@/types/i18b';
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const stackGroups = [
    [
@@ -50,36 +56,117 @@ const stackGroups = [
 ] as const;
 
 export default function StackSection({ lang }: { lang: Lang }) {
+   const sectionRef = useRef<HTMLElement>(null);
+
+   useGSAP(
+      () => {
+         gsap.fromTo(
+            '.stack-title',
+            {
+               x: 1500,
+               opacity: 0.2,
+            },
+            {
+               x: 0,
+               opacity: 0.8,
+               ease: 'circ.out',
+               duration: 1.5,
+               scrollTrigger: {
+                  trigger: '.stack-title',
+                  start: 'top 90%',
+                  end: 'top -=400',
+                  invalidateOnRefresh: true,
+                  once: true,
+               },
+            }
+         );
+
+         const subtitles = gsap.utils.toArray<HTMLElement>(
+            '.stack-subtitle',
+            sectionRef.current
+         );
+         subtitles.forEach((subtitle) => {
+            gsap.fromTo(
+               subtitle,
+               {
+                  x: 1500,
+                  opacity: 0.2,
+               },
+               {
+                  x: 0,
+                  opacity: 0.8,
+                  ease: 'circ.out',
+                  duration: 1.5,
+                  delay: 2,
+                  scrollTrigger: {
+                     trigger: subtitle,
+                     start: 'top 90%',
+                     end: 'top -=400',
+                     invalidateOnRefresh: true,
+                     once: true,
+                  },
+               }
+            );
+         });
+
+         const groups = gsap.utils.toArray<HTMLElement>(
+            '[data-stack-group]',
+            sectionRef.current
+         );
+         groups.forEach((group) => {
+            const cards = gsap.utils.toArray<HTMLElement>(
+               '[data-stack-card]',
+               group
+            );
+
+            gsap.fromTo(
+               cards,
+               {
+                  scale: 0.2,
+                  opacity: 0,
+               },
+               {
+                  scale: 1,
+                  opacity: 1,
+                  duration: 0.7,
+                  stagger: 0.25,
+                  ease: 'back.out(3)',
+                  scrollTrigger: {
+                     trigger: group,
+                     start: 'top 70%',
+                     once: true,
+                  },
+               }
+            );
+         });
+      },
+      { scope: sectionRef }
+   );
+
    return (
       <section
          id="stack"
-         className="w-full px-6 py-24 bg-black sm:px-10 lg:px-20 lg:py-32"
+         ref={sectionRef}
+         className="w-full overflow-hidden px-6 py-24 bg-black sm:px-10 lg:px-20 lg:py-32"
       >
          <div className="mx-auto w-full max-w-6xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
-               {lang === 'es' ? 'Herramientas' : 'Toolkit'}
-            </p>
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <h2 className="stack-title mt-5 max-w-3xl text-4xl font-bold tracking-tight text-cyan-200 sm:text-5xl">
                {lang === 'es'
                   ? 'Tecnologías con las que construyo.'
                   : 'Technologies I build with.'}
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-               {lang === 'es'
-                  ? 'Un stack que sigo ampliando a través de proyectos reales, aprendizaje continuo y curiosidad por entender cómo funciona cada capa.'
-                  : 'A stack I keep expanding through real projects, continuous learning, and curiosity about how every layer works.'}
-            </p>
             <div className="mt-14 space-y-12">
                {stackGroups.map(([group, technologies]) => (
-                  <div key={group}>
-                     <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+                  <div key={group} data-stack-group>
+                     <h3 className="stack-subtitle mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
                         {group}
                      </h3>
                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                         {technologies.map(([name, slug]) => (
                            <article
                               key={slug}
-                              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5 text-center transition-[transform,border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:-translate-y-1.5 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-zinc-900"
+                              data-stack-card
+                              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden rounded-2xl border text-center transition-[transform,border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:-translate-y-1.5 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/30 border-zinc-800 bg-zinc-900"
                            >
                               <div className="relative size-14 transition-transform duration-300 ease-out group-hover:rotate-3 group-hover:scale-110">
                                  <Image

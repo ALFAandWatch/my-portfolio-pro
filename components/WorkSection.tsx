@@ -2,10 +2,89 @@ import { useWorkAnimation } from '@/hooks/useWorkAnimation';
 import type { Lang } from '@/types/i18b';
 import { useRef } from 'react';
 
+type Card = {
+   number: string;
+   title: string;
+   description: string;
+   evidence: string;
+   stack: string[];
+};
+
 export default function WorkSection({ lang }: { lang: Lang }) {
    const workRef = useRef<HTMLElement>(null);
 
    useWorkAnimation({ workRef });
+
+   const cards: Card[] =
+      lang === 'es'
+         ? [
+              {
+                 number: '01',
+                 title: 'Interfaces frontend',
+                 description:
+                    'Construyo interfaces responsive, accesibles y reutilizables con React, Next.js y TypeScript.',
+                 evidence: 'CompanyRadar',
+                 stack: ['React', 'Next.js', 'TypeScript'],
+              },
+              {
+                 number: '02',
+                 title: 'Datos y backend',
+                 description:
+                    'Conecto la interfaz con APIs, autenticación, bases de datos y servicios backend para convertir una pantalla en una aplicación funcional.',
+                 evidence: 'ClickNest',
+                 stack: ['Supabase', 'PostgreSQL', 'REST APIs'],
+              },
+              {
+                 number: '03',
+                 title: 'Interacción y feedback',
+                 description:
+                    'Diseño estados de carga, éxito, error y vacío, además de animaciones con propósito para que cada acción sea comprensible.',
+                 evidence: 'Planner.uy',
+                 stack: ['GSAP', 'UI states', 'Motion'],
+              },
+              {
+                 number: '04',
+                 title: 'De idea a producto publicado',
+                 description:
+                    'Puedo acompañar el proyecto desde la estructura inicial hasta el deploy, el responsive y las mejoras posteriores.',
+                 evidence: 'SportTickers',
+                 stack: ['Git', 'Vercel', 'Supabase'],
+              },
+           ]
+         : [
+              {
+                 number: '01',
+                 title: 'Frontend interfaces',
+                 description:
+                    'I build responsive, accessible, and reusable interfaces with React, Next.js, and TypeScript.',
+                 evidence: 'CompanyRadar',
+                 stack: ['React', 'Next.js', 'TypeScript'],
+              },
+              {
+                 number: '02',
+                 title: 'Data and backend',
+                 description:
+                    'I connect interfaces with APIs, authentication, databases, and backend services to turn screens into functional applications.',
+                 evidence: 'ClickNest',
+                 stack: ['Supabase', 'PostgreSQL', 'REST APIs'],
+              },
+              {
+                 number: '03',
+                 title: 'Interaction and feedback',
+                 description:
+                    'I design loading, success, error, and empty states, plus purposeful motion that helps users understand every action.',
+                 evidence: 'Planner.uy',
+                 stack: ['GSAP', 'UI states', 'Motion'],
+              },
+              {
+                 number: '04',
+                 title: 'From idea to shipped product',
+                 description:
+                    'I can support a project from its initial structure through deployment, responsive refinement, and continued improvements.',
+                 evidence: 'SportTickers',
+                 stack: ['Git', 'Vercel', 'Supabase'],
+              },
+           ];
 
    return (
       <section
@@ -15,96 +94,36 @@ export default function WorkSection({ lang }: { lang: Lang }) {
       >
          <div className="mx-auto w-full max-w-6xl">
             <div className="work-title-wrapper mt-20">
-               <p className="work-title z-1 text-4xl font-black uppercase tracking-[0.3em] text-cyan-200">
+               <p className="work-title z-1 text-3xl md:text-5xl font-black uppercase tracking-[0.3em] text-cyan-200 pb-80">
                   {lang === 'es'
                      ? 'Cómo puedo aportar'
                      : 'How I can contribute'}
                </p>
             </div>
-            <div className="mt-42 gap-35 flex flex-col w-[80%] mx-auto">
-               {(lang === 'es'
-                  ? [
-                       [
-                          '01',
-                          'Interfaces frontend',
-                          'Construyo interfaces responsive, accesibles y reutilizables con React, Next.js y TypeScript.',
-                          'CompanyRadar',
-                          'React · Next.js · TypeScript',
-                       ],
-                       [
-                          '02',
-                          'Datos y backend',
-                          'Conecto la interfaz con APIs, autenticación, bases de datos y servicios backend para convertir una pantalla en una aplicación funcional.',
-                          'ClickNest',
-                          'Supabase · PostgreSQL · REST APIs',
-                       ],
-                       [
-                          '03',
-                          'Interacción y feedback',
-                          'Diseño estados de carga, éxito, error y vacío, además de animaciones con propósito para que cada acción sea comprensible.',
-                          'Planner.uy',
-                          'GSAP · UI states · Motion',
-                       ],
-                       [
-                          '04',
-                          'De idea a producto publicado',
-                          'Puedo acompañar el proyecto desde la estructura inicial hasta el deploy, el responsive y las mejoras posteriores.',
-                          'SportTickers',
-                          'Git · Vercel · Supabase',
-                       ],
-                    ]
-                  : [
-                       [
-                          '01',
-                          'Frontend interfaces',
-                          'I build responsive, accessible, and reusable interfaces with React, Next.js, and TypeScript.',
-                          'CompanyRadar',
-                          'React · Next.js · TypeScript',
-                       ],
-                       [
-                          '02',
-                          'Data and backend',
-                          'I connect interfaces with APIs, authentication, databases, and backend services to turn screens into functional applications.',
-                          'ClickNest',
-                          'Supabase · PostgreSQL · REST APIs',
-                       ],
-                       [
-                          '03',
-                          'Interaction and feedback',
-                          'I design loading, success, error, and empty states, plus purposeful motion that helps users understand every action.',
-                          'Planner.uy',
-                          'GSAP · UI states · Motion',
-                       ],
-                       [
-                          '04',
-                          'From idea to shipped product',
-                          'I can support a project from its initial structure through deployment, responsive refinement, and continued improvements.',
-                          'SportTickers',
-                          'Git · Vercel · Supabase',
-                       ],
-                    ]
-               ).map(([number, title, description, evidence, stack]) => (
+            <div className="gap-35 flex flex-col w-[80%] mx-auto">
+               {cards.map(({ number, title, description, evidence, stack }) => (
                   <article
                      key={number}
-                     className="group animated-card lg:w-[50%] z-10 opacity-0 odd:ms-auto rounded-2xl border p-6 transition-[border-color,box-shadow] duration-300 border-cyan-400/30 bg-cyan-400/40 shadow-2xl shadow-cyan-400/30"
+                     className="group animated-card lg:w-[40%] lg:aspect-square z-10 opacity-0 odd:ms-auto rounded-2xl border p-6 transition-[border-color,box-shadow] duration-300 border-cyan-400/30 bg-cyan-200/90"
                   >
-                     <span className="font-mono text-sm text-cyan-200">
+                     <span className="font-mono text-md text-zinc-800">
                         {number}
                      </span>
-                     <h3 className="mt-8 text-2xl font-semibold text-zinc-800 dark:text-zinc-100">
+                     <h3 className="mt-8 text-3xl font-semibold text-zinc-800">
                         {title}
                      </h3>
-                     <p className="mt-3 leading-relaxed text-zinc-600 dark:text-zinc-400">
+                     <p className="mt-3 leading-relaxed text-zinc-500 text-lg text-shadow-2xs text-shadow-cyan-400">
                         {description}
                      </p>
-                     <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-200 pt-4 dark:border-zinc-800">
-                        <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-200">
-                           {lang === 'es' ? 'Evidencia:' : 'Evidence:'}{' '}
-                           <span className="text-cyan-200">{evidence}</span>
-                        </span>
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                           {stack}
-                        </span>
+                     <div className="mt-4 flex flex-wrap items-center gap-3 border-zinc-200 pt-4 dark:border-zinc-800">
+                        {stack.map((text, i) => (
+                           <span
+                              key={i}
+                              className="text-sm text-zinc-600 bg-cyan-400/90 p-4 py-2 rounded-full"
+                           >
+                              {text}
+                           </span>
+                        ))}
                      </div>
                   </article>
                ))}
