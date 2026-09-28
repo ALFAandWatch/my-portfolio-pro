@@ -149,7 +149,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                      start: 'top 90%',
                      once: true,
                      invalidateOnRefresh: true,
-                     markers: false,
+                     markers: true,
                   },
                }
             )
