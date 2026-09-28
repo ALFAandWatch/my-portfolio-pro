@@ -26,7 +26,7 @@ function TimelineGroup({
    });
 
    return (
-      <div className="relative perspective-distant space-y-8 before:absolute before:bottom-4 before:left-[0.45rem] before:top-4 before:w-px before:bg-zinc-300 dark:before:bg-zinc-700">
+      <div className="relative perspective-distant space-y-8 before:absolute before:bottom-4 before:left-[0.45rem] before:top-4 before:w-px before:bg-cyan-700">
          {orderedEntries.map((entry, i) => (
             <article
                key={`${entry.title[lang]}-${entry.period}`}
@@ -35,10 +35,10 @@ function TimelineGroup({
                className="relative pl-8 opacity-0 duration-300"
             >
                <span className="absolute left-0 top-2 size-2 rounded-full ring-4 ring-white bg-cyan-200 dark:ring-black" />
-               <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-300 hover:-translate-2 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
+               <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-300 hover:-translate-2 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/30 dark:border-zinc-800 dark:bg-cyan-950 sm:p-8">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                      <div>
-                        <h3 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-100">
+                        <h3 className="text-2xl font-semibold text-zinc-100">
                            {entry.title[lang]}
                         </h3>
                         <p className="mt-1 text-cyan-200">{entry.role[lang]}</p>
@@ -47,7 +47,7 @@ function TimelineGroup({
                         {entry.period}
                      </time>
                   </div>
-                  <p className="mt-5 max-w-3xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  <p className="mt-5 max-w-3xl leading-relaxed text-zinc-300">
                      {entry.description[lang]}
                   </p>
                   <ul
@@ -128,9 +128,9 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
             '[data-timeline-card]',
             sectionRef.current
          );
-         timelineCard.forEach((card) =>
+         timelineCard.forEach((tCard) =>
             gsap.fromTo(
-               card,
+               tCard,
                {
                   opacity: 0.3,
                   y: 600,
@@ -143,10 +143,10 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                   scale: 1,
                   rotateX: 0,
                   duration: 1.2,
-                  ease: 'back.out(2)',
+                  ease: 'back.out(3)',
                   scrollTrigger: {
-                     trigger: card,
-                     start: 'top 80%',
+                     trigger: tCard,
+                     start: 'top 90%',
                      once: true,
                      markers: false,
                   },
@@ -173,7 +173,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
             </h2>
             <div className="mt-14 space-y-16">
                <div>
-                  <h3 className="timeline-subtitle mb-8 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
+                  <h3 className="timeline-subtitle mb-8 text-2xl font-semibold text-zinc-700 dark:text-zinc-300">
                      {lang === 'es'
                         ? 'Experiencia profesional'
                         : 'Professional experience'}
@@ -184,7 +184,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                   />
                </div>
                <div>
-                  <h3 className="timeline-subtitle mb-8 text-xl font-semibold text-zinc-700 dark:text-zinc-300">
+                  <h3 className="timeline-subtitle mb-8 text-2xl font-semibold text-zinc-700 dark:text-zinc-300">
                      {lang === 'es' ? 'Estudios' : 'Education'}
                   </h3>
                   <TimelineGroup entries={timelineData.education} lang={lang} />

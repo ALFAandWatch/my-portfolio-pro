@@ -158,7 +158,7 @@ export default function StackSection({ lang }: { lang: Lang }) {
             <div className="mt-14 space-y-12">
                {stackGroups.map(([group, technologies]) => (
                   <div key={group} data-stack-group>
-                     <h3 className="stack-subtitle mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+                     <h3 className="stack-subtitle mb-5 text-xl font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
                         {group}
                      </h3>
                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -166,7 +166,7 @@ export default function StackSection({ lang }: { lang: Lang }) {
                            <article
                               key={slug}
                               data-stack-card
-                              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden rounded-2xl border text-center transition-[transform,border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:-translate-y-1.5 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/30 border-zinc-800 bg-zinc-900"
+                              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden rounded-2xl border text-center transition-[transform,border-color,box-shadow, translate] duration-300 hover:-translate-2 hover:-translate-y-1.5 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/30 border-zinc-800 bg-cyan-950"
                            >
                               <div className="relative size-14 transition-transform duration-300 ease-out group-hover:rotate-3 group-hover:scale-110">
                                  <Image

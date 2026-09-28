@@ -17,6 +17,9 @@ export default function ProjectsSection({
    lang: Lang;
 }) {
    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+   const orderedProjects = [...projects].sort(
+      (a, b) => Number(b.featured) - Number(a.featured)
+   );
 
    useEffect(() => {
       if (!selectedProject) return;
@@ -48,46 +51,61 @@ export default function ProjectsSection({
             </h2>
 
             <div className="mt-14 grid gap-5 md:grid-cols-2">
-               {projects.map((project) => (
+               {orderedProjects.map((project) => (
                   <button
                      key={project.id}
                      type="button"
                      onClick={() => setSelectedProject(project)}
-                     className={`group relative flex min-h-64 w-full items-end overflow-hidden rounded-2xl border bg-zinc-900 text-left shadow-sm transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-white/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500 hover:cursor-pointer hover:shadow-lg hover:shadow-white/5 ${project.featured ? 'border-cyan-400 drop-shadow-[0_0px_10px_rgb(0,211,242)]' : project.academic ? 'border-orange-400 drop-shadow-[0_0px_10px_rgb(255,137,3)]' : 'border-zinc-200'}`}
+                     className={`group relative flex min-h-80 w-full items-end overflow-hidden rounded-3xl border bg-zinc-900 text-left shadow-sm transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-2 hover:border-white/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500 hover:cursor-pointer hover:shadow-2xl hover:shadow-white/10 sm:min-h-96 ${project.featured ? 'border-cyan-400 drop-shadow-[0_0px_14px_rgb(0,211,242)] md:col-span-2' : project.academic ? 'border-orange-400 drop-shadow-[0_0px_10px_rgb(255,137,3)]' : 'border-zinc-200'}`}
                   >
                      <Image
                         src={project.image}
                         alt=""
                         fill
                         sizes="(min-width: 1024px) 960px, 100vw"
-                        className="object-cover opacity-65 transition duration-500 group-hover:scale-105 group-hover:opacity-80"
+                        className="object-cover opacity-55 transition duration-700 ease-out group-hover:scale-110 group-hover:opacity-85"
                      />
-                     <span className="absolute inset-0 bg-linear-to-t from-black/85 via-black/30 to-transparent" />
-                     <span className="relative z-10 flex w-full flex-col gap-3 p-6 sm:flex-row sm:items-end sm:justify-between sm:p-8">
-                        <span>
-                           <span className="block text-2xl font-semibold text-white">
-                              {project.title}
+                     <span className="absolute inset-0 bg-linear-to-t from-black via-black/45 to-transparent opacity-95 transition-opacity duration-500 group-hover:opacity-100" />
+                     <span className="relative z-10 flex w-full flex-col gap-5 rounded-b-2xl border border-white/15 bg-black/45 p-5 shadow-2xl backdrop-blur-md transition-[background-color,border-color,transform] duration-500 group-hover:-translate-y-1 group-hover:border-white/30 group-hover:bg-black/60 sm:p-6">
+                        <span className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                           <span>
+                              <span className="block text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                                 {project.title}
+                              </span>
+                              <span className="mt-2 block max-w-2xl text-sm leading-relaxed text-zinc-200">
+                                 {project.shortDescription}
+                              </span>
                            </span>
-                           <span className="mt-1 block text-sm text-zinc-200">
-                              {project.shortDescription}
+                           <span className="flex shrink-0 flex-wrap gap-2">
+                              {project.featured && (
+                                 <Badge variant="featured">
+                                    {labels.featured}
+                                 </Badge>
+                              )}
+                              {project.academic && (
+                                 <Badge variant="academic">
+                                    {labels.academic}
+                                 </Badge>
+                              )}
+                              {project.inProgress && (
+                                 <Badge variant="inProgress">
+                                    {labels.inProgress}
+                                 </Badge>
+                              )}
                            </span>
                         </span>
-                        <span className="flex flex-wrap gap-2">
-                           {project.featured && (
-                              <Badge variant="featured">
-                                 {labels.featured}
-                              </Badge>
-                           )}
-                           {project.academic && (
-                              <Badge variant="academic">
-                                 {labels.academic}
-                              </Badge>
-                           )}
-                           {project.inProgress && (
-                              <Badge variant="inProgress">
-                                 {labels.inProgress}
-                              </Badge>
-                           )}
+                        <span className="flex items-center justify-between border-t border-white/15 pt-4 text-sm font-semibold text-cyan-200">
+                           <span>
+                              {lang === 'es'
+                                 ? 'Explorar proyecto'
+                                 : 'Explore project'}
+                           </span>
+                           <span
+                              aria-hidden="true"
+                              className="text-xl transition-transform duration-300 group-hover:translate-x-1"
+                           >
+                              →
+                           </span>
                         </span>
                      </span>
                   </button>
