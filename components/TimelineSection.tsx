@@ -27,11 +27,11 @@ function TimelineGroup({
 
    return (
       <div className="relative perspective-distant space-y-8 before:absolute before:bottom-4 before:left-[0.45rem] before:top-4 before:w-px before:bg-cyan-700">
-         {orderedEntries.map((entry, i) => (
+         {orderedEntries.map((entry) => (
             <article
                key={`${entry.title[lang]}-${entry.period}`}
                data-timeline-card
-               style={{ transformStyle: 'preserve-3d', zIndex: -i }}
+               style={{ transformStyle: 'preserve-3d' }}
                className="relative pl-8 opacity-0 duration-300"
             >
                <span className="absolute left-0 top-2 size-2 rounded-full ring-4 ring-white bg-cyan-200 dark:ring-black" />
@@ -128,12 +128,12 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
             '[data-timeline-card]',
             sectionRef.current
          );
-         timelineCard.forEach((tCard) =>
+         timelineCard.forEach((card) =>
             gsap.fromTo(
-               tCard,
+               card,
                {
                   opacity: 0.3,
-                  y: 600,
+                  y: 100,
                   scale: 0.2,
                   rotateX: -180,
                },
@@ -144,8 +144,9 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                   rotateX: 0,
                   duration: 1.2,
                   ease: 'back.out(3)',
+                  immediateRender: false,
                   scrollTrigger: {
-                     trigger: tCard,
+                     trigger: card,
                      start: 'top 90%',
                      once: true,
                      invalidateOnRefresh: true,
