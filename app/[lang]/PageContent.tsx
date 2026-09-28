@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import esDictionary from '@/dictionaries/es.json';
 import enDictionary from '@/dictionaries/en.json';
 import type { Lang } from '@/types/i18b';
@@ -11,6 +11,7 @@ import WorkSection from '@/components/WorkSection';
 import StackSection from '@/components/StackSection';
 import { useHeroAnimation } from '@/hooks/useHeroAnimation';
 import HeroScene from '@/components/HeroScene';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const dictionaries = {
    es: esDictionary,
@@ -32,6 +33,22 @@ export default function PageContent({ lang }: { lang: Lang }) {
       outlineRef,
       portraitRef,
    });
+
+   useEffect(() => {
+      const refreshScrollTriggers = () => {
+         ScrollTrigger.refresh();
+      };
+
+      if (document.readyState === 'complete') {
+         refreshScrollTriggers();
+      } else {
+         window.addEventListener('load', refreshScrollTriggers);
+      }
+
+      return () => {
+         window.removeEventListener('load', refreshScrollTriggers);
+      };
+   }, []);
 
    return (
       <>

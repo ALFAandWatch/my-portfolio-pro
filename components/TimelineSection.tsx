@@ -148,6 +148,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                      trigger: tCard,
                      start: 'top 90%',
                      once: true,
+                     invalidateOnRefresh: true,
                      markers: false,
                   },
                }
