@@ -133,7 +133,7 @@ export default function TimelineSection({ lang }: { lang: Lang }) {
                card,
                {
                   opacity: 0.3,
-                  y: 100,
+                  y: 600,
                   scale: 0.2,
                   rotateX: -180,
                },
